@@ -7,13 +7,19 @@
 
 ## チェックすべきサイト
 
+### まとめ・比較
+
+- **<https://dsk.ne.jp/m/>** ← セール情報がよくまとまっているおすすめサイト
+- スカイスキャナー / Google フライト / トラベルコ
+
+### 航空会社公式
+
 - ANA: <https://www.ana.co.jp/>
 - JAL: <https://www.jal.co.jp/>
 - AirDo: <https://www.airdo.jp/>
 - Skymark: <https://www.skymark.co.jp/>
 - Peach: <https://www.flypeach.com/>
 - Jetstar Japan: <https://www.jetstar.com/jp/ja/>
-- 比較サイト: スカイスキャナー / Google フライト / トラベルコ
 
 ## アラート設定
 
