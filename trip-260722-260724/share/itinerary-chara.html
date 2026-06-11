@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道旅行 キャラ版 2026.7.22–24</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #111; color: #f0f0f0; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+
+.hero { position: relative; height: 60vw; max-height: 380px; min-height: 220px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.7) 100%); }
+.hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 20px 24px; z-index: 1; }
+.hero-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 6px; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: 32px; line-height: 1.2; margin-bottom: 10px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.hero-chip { font-size: 11px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); padding: 4px 10px; border-radius: 99px; backdrop-filter: blur(4px); }
+
+.body { background: #f5f4f0; color: #1a1a1a; }
+
+.chara-notice { background: #1c2b3a; color: rgba(255,255,255,.8); padding: 10px 20px; font-size: 12px; text-align: center; letter-spacing: .05em; }
+.chara-notice strong { color: white; }
+
+.flight-strip { background: #1c2b3a; color: white; padding: 16px 20px; }
+.flight-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 13px; }
+.flight-row + .flight-row { border-top: 1px solid rgba(255,255,255,.1); }
+.f-dir { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: rgba(255,255,255,.15); padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
+.f-num { flex: 1; font-weight: 500; }
+.f-sub { font-size: 11px; color: rgba(255,255,255,.5); }
+.f-time { font-family: 'DM Serif Display', serif; font-size: 18px; white-space: nowrap; }
+
+.day-header { position: relative; height: 44vw; max-height: 260px; min-height: 160px; overflow: hidden; }
+.day-header img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.day-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.48); }
+.day-header-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px 18px; z-index: 1; color: white; }
+.day-num { font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
+.day-ttl { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.2; }
+.day-sub { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
+
+.content { padding: 0 16px 8px; background: #f5f4f0; }
+
+.spot { background: white; border-radius: 14px; overflow: hidden; margin: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+
+.chara-wrap { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.chara-wrap img { height: 155px; width: auto; max-width: 88%; object-fit: contain; filter: drop-shadow(2px 6px 16px rgba(0,0,0,.25)); }
+.chara-tag { position: absolute; bottom: 8px; right: 10px; font-size: 10px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; background: rgba(0,0,0,.35); color: white; backdrop-filter: blur(6px); }
+
+.spot-body { padding: 14px 16px 16px; }
+.spot-time { font-size: 11px; font-weight: 700; color: #888; letter-spacing: .06em; margin-bottom: 4px; }
+.spot-name { font-size: 17px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; display: flex; align-items: flex-start; flex-wrap: wrap; gap: 6px; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; flex-shrink: 0; margin-top: 2px; }
+.badge-red  { background: #fee2e2; color: #c0392b; }
+.badge-gold { background: #fef3c7; color: #92640a; }
+.badge-blue { background: #dbeafe; color: #1d4ed8; }
+.spot-desc { font-size: 13px; color: #444; line-height: 1.65; margin-bottom: 10px; }
+.spot-note { font-size: 12px; color: #888; background: #f5f4f0; border-radius: 8px; padding: 8px 10px; margin-bottom: 10px; line-height: 1.6; }
+.links { display: flex; flex-wrap: wrap; gap: 6px; }
+.link-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #555; background: #f0ede7; border: 1px solid #ddd; padding: 5px 10px; border-radius: 7px; }
+.link-btn svg { width: 10px; height: 10px; flex-shrink: 0; }
+
+.mini-spot { background: white; border-radius: 12px; padding: 12px 14px; margin: 8px 0; display: flex; align-items: flex-start; gap: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+.mini-icon { font-size: 22px; flex-shrink: 0; }
+.mini-time { font-size: 10px; font-weight: 700; color: #aaa; margin-bottom: 2px; }
+.mini-name { font-size: 14px; font-weight: 700; }
+.mini-note { font-size: 12px; color: #777; margin-top: 2px; line-height: 1.5; }
+
+.checklist { background: white; border-radius: 14px; padding: 18px 16px; margin: 16px 0 24px; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+.cl-title { font-size: 13px; font-weight: 700; color: #aaa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+.cl-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0ede7; font-size: 13px; line-height: 1.5; }
+.cl-item:last-child { border-bottom: none; }
+.cl-box { width: 20px; height: 20px; border: 2px solid #ddd; border-radius: 5px; flex-shrink: 0; margin-top: 1px; }
+.cl-urgent { color: #c0392b; font-weight: 700; }
+
+.footer { background: #1c2b3a; color: rgba(255,255,255,.5); text-align: center; padding: 28px 20px; font-size: 12px; }
+.footer strong { display: block; color: white; font-size: 15px; margin-bottom: 4px; }
+
+@media (min-width: 600px) { .hero h1 { font-size: 44px; } body { max-width: 600px; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=1200&auto=format&fit=crop&q=80" alt="北海道"
+       onerror="this.src='https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80'">
+  <div class="hero-text">
+    <div class="hero-label">Trip · 2026.07.22 — 07.24 · キャラ版</div>
+    <h1>北海道<br>行ってきます</h1>
+    <div class="hero-chips">
+      <span class="hero-chip">✈ Peach MM563/582</span>
+      <span class="hero-chip">🏨 札幌グランドホテル</span>
+      <span class="hero-chip">🐾 ちいかわ聖地巡礼</span>
+    </div>
+  </div>
+</div>
+
+<div class="body">
+
+<div class="chara-notice">🎮 <strong>ポケモン × ちいかわ</strong> キャラクター旅行しおり版</div>
+
+<div class="flight-strip">
+  <div class="flight-row">
+    <span class="f-dir">行き</span>
+    <div class="f-num">MM563 · 成田 → 新千歳<div class="f-sub">第1ターミナル南ウィング1F · 7:00着で余裕あり</div></div>
+    <div class="f-time">08:45</div>
+  </div>
+  <div class="flight-row">
+    <span class="f-dir">帰り</span>
+    <div class="f-num">MM582 · 新千歳 → 成田<div class="f-sub">保安検査 17:30まで · 17:00には空港着</div></div>
+    <div class="f-time">18:55</div>
+  </div>
+</div>
+
+<!-- DAY 1 -->
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80" alt="札幌">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#f59e0b;color:#1a1a1a;">DAY 1 · 7/22 水</span>
+    <div class="day-ttl">札幌着。まず飯。</div>
+    <div class="day-sub">スープカレー → ジンギスカン → 日本三大夜景</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="mini-spot">
+    <div class="mini-icon">✈️</div>
+    <div>
+      <div class="mini-time">08:45 → 10:35</div>
+      <div class="mini-name">成田発 → 新千歳着</div>
+      <div class="mini-note">快速エアポート 37分 → 11:50 札幌駅。まず荷物だけホテルに預けて動く。チェックインは 15:00〜</div>
+    </div>
+  </div>
+
+  <!-- GARAKU → ヤドン (ヤドンのシッポカレーが有名) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #fff176 0%, #ffca28 60%, #ffa000 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png" alt="ヤドン">
+      <span class="chara-tag">ポケモン No.079 ヤドン</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">12:25 整理券 → 12:50 入店</div>
+      <div class="spot-name">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
+      <div class="spot-desc">
+        カレーといえばヤドン。ヤドンのシッポカレーはポケモン公式がコラボするほどの親和性。整理券とってLINEで呼ばれるまで周辺ぶらぶらできる。スープなくなり次第終了なので早め確保。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://s-garaku.com/shop-garaku/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          公式
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/GARAKU+スープカレー+札幌本店" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🌿</div>
+    <div>
+      <div class="mini-time">14:00</div>
+      <div class="mini-name">大通公園・テレビ塔</div>
+      <div class="mini-note">ゆっくり散歩。15:00にホテル正式チェックイン</div>
+      <div class="links" style="margin-top:8px;">
+        <a class="link-btn" href="https://www.google.com/maps/search/大通公園+テレビ塔+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- フクロウ亭 → リザードン (炎×肉) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #4a0000 0%, #b71c1c 50%, #e53935 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="リザードン">
+      <span class="chara-tag">ポケモン No.006 リザードン</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">17:00</div>
+      <div class="spot-name">🐑 フクロウ亭 <span class="badge badge-red">要予約</span></div>
+      <div class="spot-desc">
+        ジンギスカン。炎を操るリザードンも北海道の肉の前では観客に回る。北海道来てジンギスカン食わなかったは通用しない。席数少ないので予約必須。忘れると詰む。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/フクロウ亭+ジンギスカン+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 藻岩山 → ブラッキー (夜に輝く) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #070720 0%, #0d1b5e 50%, #1a237e 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" alt="ブラッキー">
+      <span class="chara-tag">ポケモン No.197 ブラッキー</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">19:30 山頂</div>
+      <div class="spot-name">🌃 藻岩山 夜景</div>
+      <div class="spot-desc">
+        日本三大夜景のひとつ。夜になると輪が光るブラッキーのように、日没直後のマジックアワーで札幌の夜景が輝く。ロープウェイ + ミニケーブルカーの2段構え。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/藻岩山ロープウェイ+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DAY 2 -->
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1200&auto=format&fit=crop&q=80" alt="小樽">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#14b8a6;color:white;">DAY 2 · 7/23 木 ⭐</span>
+    <div class="day-ttl">全部小樽に置いてきた。</div>
+    <div class="day-sub">寿司 · ちいかわ · 運河 · 夜パフェ</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="mini-spot">
+    <div class="mini-icon">🚃</div>
+    <div>
+      <div class="mini-time">11:00 → 11:32</div>
+      <div class="mini-name">札幌駅 → 小樽駅</div>
+      <div class="mini-note">JR函館本線 32分 ¥750。朝は時計台周辺を散歩してから出発</div>
+      <div class="links" style="margin-top:8px;">
+        <a class="link-btn" href="https://www.google.com/maps/search/小樽駅" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          小樽駅
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 政寿司 → ラプラス (海の王者) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #003c8f 0%, #1565c0 50%, #1976d2 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png" alt="ラプラス">
+      <span class="chara-tag">ポケモン No.131 ラプラス</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">12:00</div>
+      <div class="spot-name">🍣 おたる政寿司 本店 <span class="badge badge-red">要予約</span></div>
+      <div class="spot-desc">
+        1938年創業。ラプラスが悠然と泳ぐ小樽の海の恵みを握った店。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          食べログ予約
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/おたる政寿司+本店+小樽" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ちいかわ → Twitter embed -->
+  <div class="spot" style="border: 2px solid #14b8a6;">
+    <div style="padding:12px 12px 0;">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ja" style="margin:0;">
+        <a href="https://x.com/chiikawamgmg/status/2060164299452997884">ちいかわもぐもぐ本舗 小樽店オープン告知ツイート</a>
+      </blockquote>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">13:30</div>
+      <div class="spot-name">ちいかわもぐもぐ本舗 小樽店 <span class="badge badge-gold">入店ルール要確認</span></div>
+      <div class="spot-desc">
+        2026/7/18オープン。うちらが行く7/23はオープン<strong>5日目</strong>。小樽限定グッズあり。ベビーカステラもある。入店ルールは公式Xで告知されるので旅行前に必ず確認すること。
+      </div>
+      <div class="spot-note">
+        📱 入店方法(整理券 / 予約 / 自由入店)は公式X @chiikawamgmg で発表される。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.chiikawamogumogu.jp/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          公式サイト
+        </a>
+        <a class="link-btn" href="https://x.com/chiikawamgmg" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          公式X
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/ちいかわもぐもぐ本舗+小樽+堺町通り" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LeTAO → マホイップ (スイーツポケモン) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 60%, #e91e8c 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png" alt="マホイップ">
+      <span class="chara-tag">ポケモン No.869 マホイップ</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">16:00</div>
+      <div class="spot-name">🧀 LeTAO 本店 2F カフェ</div>
+      <div class="spot-desc">
+        ドゥーブルフロマージュ。スイーツ専門ポケモンのマホイップも全力で認めるチーズケーキ。「名前だけ知ってる」で終わらせてきた人生をここで終わらせる。本店限定もあり。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/LeTAO+本店+小樽" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 小樽倉庫No.1 → ルンパッパ (パーティーポケモン) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png" alt="ルンパッパ">
+      <span class="chara-tag">ポケモン No.272 ルンパッパ</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">17:30</div>
+      <div class="spot-name">🍺 小樽倉庫 No.1</div>
+      <div class="spot-desc">
+        運河沿いの石造倉庫がそのままビアパブになってる場所。ルンパッパばりのノリでクラフトビールを飲んだら徒歩0分でそのまま運河ガス灯へ。無休・予約不要。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://otarubeer.com/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          公式
+        </a>
+        <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000286/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          食べログ
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/小樽倉庫No.1+小樽運河" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🌉</div>
+    <div>
+      <div class="mini-time">19:00</div>
+      <div class="mini-name">小樽運河 ガス灯の夜景</div>
+      <div class="mini-note">倉庫No.1から徒歩0分。夜景撮影。20:30に小樽駅に向かい 21:32 発で札幌へ</div>
+      <div class="links" style="margin-top:8px;">
+        <a class="link-btn" href="https://www.google.com/maps/search/小樽運河+ガス灯" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- パフェ佐藤 → ニンフィア (エレガント×甘さ) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #880e4f 0%, #c2185b 50%, #e91e63 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png" alt="ニンフィア">
+      <span class="chara-tag">ポケモン No.700 ニンフィア</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">22:00</div>
+      <div class="spot-name">🍨 パフェ、珈琲、酒、佐藤</div>
+      <div class="spot-desc">
+        すすきのの夜パフェ専門店。ニンフィアの気品ある甘さと深夜パフェの官能的な甘さは同じ系統にある。2〜3F でがっつりパフェ。帰りに1F 佐藤堂でピスタチオスイーツを確保。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://pfsato.official.ec/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          公式EC
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/パフェ珈琲酒佐藤+すすきの+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DAY 3 -->
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=1200&auto=format&fit=crop&q=80" alt="ラーメン"
+       onerror="this.src='https://images.unsplash.com/photo-1547592166-23ac45744acd?w=1200&auto=format&fit=crop&q=80'">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#22c55e;color:white;">DAY 3 · 7/24 金</span>
+    <div class="day-ttl">ラーメン食って帰る。</div>
+    <div class="day-sub">海鮮朝食 → 伝説の味噌ラーメン → 帰宅</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 二条市場 → ギャラドス (海鮮) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #01579b 0%, #0277bd 50%, #039be5 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="ギャラドス">
+      <span class="chara-tag">ポケモン No.130 ギャラドス</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">09:00</div>
+      <div class="spot-name">🦐 二条市場 — 海鮮丼</div>
+      <div class="spot-desc">
+        ホテルから徒歩圏内。ギャラドスが暴れる海の恵みを朝から食らう。最終日の朝をここで始める。新鮮な海鮮丼で完全にテンションを上げてから帰路につく。
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/二条市場+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🧳</div>
+    <div>
+      <div class="mini-time">10:30</div>
+      <div class="mini-name">チェックアウト</div>
+      <div class="mini-note">荷物はフロント預けでOK。10:40 札幌駅(東豊線)へ</div>
+    </div>
+  </div>
+
+  <!-- 麺屋彩未 → カビゴン (食の覇者) -->
+  <div class="spot">
+    <div class="chara-wrap" style="background: linear-gradient(135deg, #212121 0%, #37474f 50%, #546e7a 100%);">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="カビゴン">
+      <span class="chara-tag">ポケモン No.143 カビゴン</span>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">11:00 開店</div>
+      <div class="spot-name">🍜 麺屋 彩未 <span class="badge badge-red">行列覚悟</span></div>
+      <div class="spot-desc">
+        味噌ラーメン。カビゴンが道を塞いでも食べ続けるほどのラーメン。行列に並ぶのが嫌な人間でも並ぶ価値がある。10:55着で開店前から並ぶ。
+      </div>
+      <div class="spot-note">
+        📍 地下鉄東豊線 美園駅 1番出口 徒歩4分<br>
+        🕐 10:40 札幌駅発 → 10:55 美園駅着 → 並ぶ → 11:00 入店
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/麺屋+彩未+札幌+美園" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          地図
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🛍</div>
+    <div>
+      <div class="mini-time">13:00</div>
+      <div class="mini-name">札幌でお土産</div>
+      <div class="mini-note">LeTAO / 六花亭 / ロイズ / きのとや。佐藤堂は Day 2 夜に購入済み</div>
+      <div class="links" style="margin-top:8px;">
+        <a class="link-btn" href="https://www.google.com/maps/search/六花亭+札幌本店" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          六花亭
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/LeTAO+大通+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          LeTAO
+        </a>
+        <a class="link-btn" href="https://www.google.com/maps/search/きのとや+大通+札幌" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          きのとや
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">✈️</div>
+    <div>
+      <div class="mini-time">16:00 → 18:55</div>
+      <div class="mini-name">快速エアポート → 新千歳 → 帰宅</div>
+      <div class="mini-note">16:40 新千歳着。17:30までに保安検査。18:55 MM582 発 → 20:40 成田着</div>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-title">📋 予約・確認リスト</div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div><span class="cl-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div>
+        <span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br>
+        <a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#14b8a6;font-size:12px;">食べログから予約 →</a>
+      </div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div>
+        ちいかわもぐもぐ本舗 入店ルール確認<br>
+        <a href="https://x.com/chiikawamgmg" target="_blank" style="color:#14b8a6;font-size:12px;">公式X @chiikawamgmg →</a>
+      </div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div>藻岩山ロープウェイ 最新営業時間を確認</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>北海道 2026.7.22–24</strong>
+  いい旅を。
+</div>
+
+</div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
