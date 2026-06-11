@@ -4,524 +4,602 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>北海道旅行 2026.7.22–24</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:      #f2f0eb;
-    --card:    #ffffff;
-    --navy:    #1c2b3a;
-    --text:    #2c2c2c;
-    --sub:     #6b6b6b;
-    --border:  #e4e0d8;
-    --gold:    #b8945a;
-    --gold2:   #f5ede0;
-    --teal:    #2a7d6f;
-    --teal2:   #e8f4f2;
-    --amber:   #c27c3e;
-    --amber2:  #fdf3e8;
-    --sage:    #5a7a5a;
-    --sage2:   #edf3ed;
-    --red:     #c0392b;
-    --radius:  12px;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #111;
+  color: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+}
 
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+a { color: inherit; text-decoration: none; }
 
-  a { color: inherit; text-decoration: none; }
+.hero {
+  position: relative;
+  height: 60vw;
+  max-height: 380px;
+  min-height: 220px;
+  overflow: hidden;
+}
+.hero img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.7) 100%);
+}
+.hero-text {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 20px 24px;
+  z-index: 1;
+}
+.hero-label {
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 6px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.hero-chip {
+  font-size: 11px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 4px 10px;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+}
 
-  .header {
-    background: var(--navy);
-    color: white;
-    border-radius: 16px;
-    padding: 32px 24px;
-    margin-bottom: 16px;
-  }
-  .header-label {
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.5);
-    margin-bottom: 10px;
-  }
-  .header h1 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 16px;
-  }
-  .header-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .meta-chip {
-    font-size: 12px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.18);
-    padding: 4px 12px;
-    border-radius: 99px;
-    color: rgba(255,255,255,.85);
-  }
+.body { background: #f5f4f0; color: #1a1a1a; }
 
-  .sec-label {
-    font-size: 10px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--sub);
-    font-weight: 500;
-    margin-bottom: 10px;
-    padding-left: 2px;
-  }
+.flight-strip {
+  background: #1c2b3a;
+  color: white;
+  padding: 16px 20px;
+}
+.flight-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 13px;
+}
+.flight-row + .flight-row {
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.f-dir {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: rgba(255,255,255,.15);
+  padding: 3px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.f-num { flex: 1; font-weight: 500; }
+.f-sub { font-size: 11px; color: rgba(255,255,255,.5); }
+.f-time {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
 
-  .card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 18px 18px;
-    margin-bottom: 12px;
-    border: 1px solid var(--border);
-  }
+.day-header {
+  position: relative;
+  height: 44vw;
+  max-height: 260px;
+  min-height: 160px;
+  overflow: hidden;
+}
+.day-header img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.day-header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.48);
+}
+.day-header-text {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px 18px;
+  z-index: 1;
+  color: white;
+}
+.day-num {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 99px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.day-ttl { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.2; }
+.day-sub { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
 
-  .flight-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-  }
-  .flight-item + .flight-item { border-top: 1px solid var(--border); }
-  .f-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .05em;
-    padding: 3px 8px;
-    border-radius: 6px;
-    white-space: nowrap;
-    background: var(--navy);
-    color: white;
-  }
-  .f-badge.ret { background: #4a5568; }
-  .f-route { flex: 1; font-size: 14px; font-weight: 500; }
-  .f-sub { font-size: 11px; color: var(--sub); margin-top: 2px; }
-  .f-time {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    text-align: right;
-    white-space: nowrap;
-  }
+.content { padding: 0 16px 8px; background: #f5f4f0; }
 
-  .hotel-row { display: flex; align-items: center; gap: 14px; }
-  .hotel-icon {
-    width: 40px; height: 40px;
-    background: var(--bg);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-  .hotel-name { font-size: 15px; font-weight: 700; }
-  .hotel-sub { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.spot {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 12px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.spot-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.spot-img-placeholder {
+  width: 100%; height: 160px;
+  background: #e8e4dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+.spot-body { padding: 14px 16px 16px; }
+.spot-time {
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+.spot-name {
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.badge-red  { background: #fee2e2; color: #c0392b; }
+.badge-gold { background: #fef3c7; color: #92640a; }
+.badge-blue { background: #dbeafe; color: #1d4ed8; }
+.spot-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.spot-note {
+  font-size: 12px;
+  color: #888;
+  background: #f5f4f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.links { display: flex; flex-wrap: wrap; gap: 6px; }
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #555;
+  background: #f0ede7;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+.link-btn svg { width: 10px; height: 10px; flex-shrink: 0; }
 
-  .day-wrap { margin-bottom: 20px; }
-  .day-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .day-num {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .1em;
-    padding: 4px 10px;
-    border-radius: 99px;
-    background: var(--navy);
-    color: white;
-  }
-  .day-title-text { font-size: 16px; font-weight: 700; color: var(--navy); }
-  .day-subtitle-text { font-size: 12px; color: var(--sub); }
+.mini-spot {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+}
+.mini-icon { font-size: 22px; flex-shrink: 0; }
+.mini-time { font-size: 10px; font-weight: 700; color: #aaa; margin-bottom: 2px; }
+.mini-name { font-size: 14px; font-weight: 700; }
+.mini-note { font-size: 12px; color: #777; margin-top: 2px; line-height: 1.5; }
 
-  .tl { position: relative; padding-left: 28px; }
-  .tl::before {
-    content: '';
-    position: absolute;
-    left: 6px; top: 8px; bottom: 8px;
-    width: 1px;
-    background: var(--border);
-  }
-  .tl-item { position: relative; padding-bottom: 16px; }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -22px; top: 6px;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--card);
-    border: 2px solid var(--border);
-  }
-  .tl-item.accent::before {
-    background: var(--teal);
-    border-color: var(--teal);
-    width: 10px; height: 10px;
-    left: -23px; top: 5px;
-  }
+.checklist {
+  background: white;
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin: 16px 0 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+.cl-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.cl-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ede7;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.cl-item:last-child { border-bottom: none; }
+.cl-box {
+  width: 20px; height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cl-urgent { color: #c0392b; font-weight: 700; }
 
-  .tl-time {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--sub);
-    letter-spacing: .04em;
-    margin-bottom: 1px;
-  }
-  .tl-main {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.4;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .tl-note { font-size: 12px; color: var(--sub); margin-top: 3px; line-height: 1.5; }
+.footer {
+  background: #1c2b3a;
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+}
+.footer strong { display: block; color: white; font-size: 15px; margin-bottom: 4px; }
 
-  .highlight-box {
-    background: var(--teal2);
-    border: 1px solid #b2d8d2;
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin-top: 4px;
-  }
-  .highlight-box .tl-main { color: var(--teal); font-weight: 700; }
-  .highlight-box .tl-note { color: #3a6b65; }
-
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 5px;
-    vertical-align: middle;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .badge-red   { background: #fde8e8; color: var(--red); }
-  .badge-gold  { background: #fdf0dc; color: #996624; }
-  .badge-blue  { background: #e8f0fe; color: #2563eb; }
-
-  .link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--sub);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 3px 9px;
-    border-radius: 6px;
-    margin-top: 6px;
-    margin-right: 4px;
-  }
-  .link-btn svg { width: 10px; height: 10px; flex-shrink: 0; }
-
-  .check-item {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-  }
-  .check-item:last-child { border-bottom: none; }
-  .check-box {
-    width: 18px; height: 18px;
-    border: 2px solid var(--border);
-    border-radius: 4px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .check-label { flex: 1; line-height: 1.5; }
-  .check-urgent { color: var(--red); font-weight: 700; }
-
-  .footer {
-    text-align: center;
-    padding: 28px 16px 20px;
-    font-size: 12px;
-    color: var(--sub);
-  }
-  .footer strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 4px; font-weight: 700; }
-
-  @media (min-width: 600px) {
-    body { max-width: 560px; margin: 0 auto; padding: 24px 20px; }
-  }
+@media (min-width: 600px) {
+  .hero h1 { font-size: 44px; }
+  body { max-width: 600px; margin: 0 auto; }
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-label">Trip Itinerary</div>
-  <h1>北海道<br>札幌・小樽 2泊3日</h1>
-  <div class="header-meta">
-    <span class="meta-chip">2026.7.22(水) — 7.24(金)</span>
-    <span class="meta-chip">Peach MM563 / MM582</span>
-    <span class="meta-chip">札幌グランドホテル</span>
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=1200&auto=format&fit=crop&q=80" alt="北海道"
+       onerror="this.src='https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80'">
+  <div class="hero-text">
+    <div class="hero-label">Trip · 2026.07.22 — 07.24</div>
+    <h1>北海道<br>行ってきます</h1>
+    <div class="hero-chips">
+      <span class="hero-chip">✈ Peach MM563/582</span>
+      <span class="hero-chip">🏨 札幌グランドホテル</span>
+      <span class="hero-chip">🐾 ちいかわ聖地巡礼</span>
+    </div>
   </div>
 </div>
 
-<div class="sec-label">✈ フライト</div>
-<div class="card" style="margin-bottom:16px;">
-  <div class="flight-item">
-    <span class="f-badge">MM563 行き</span>
-    <div class="f-route">
-      成田 NRT → 新千歳 CTS
-      <div class="f-sub">第1ターミナル 南ウィング1F · 7:00 着で余裕あり</div>
-    </div>
-    <div class="f-time">08:45<br><span style="font-size:11px;color:#888;">→ 10:35</span></div>
+<div class="body">
+
+<div class="flight-strip">
+  <div class="flight-row">
+    <span class="f-dir">行き</span>
+    <div class="f-num">MM563 · 成田 → 新千歳<div class="f-sub">第1ターミナル南ウィング1F · 7:00着で余裕あり</div></div>
+    <div class="f-time">08:45</div>
   </div>
-  <div class="flight-item">
-    <span class="f-badge ret">MM582 帰り</span>
-    <div class="f-route">
-      新千歳 CTS → 成田 NRT
-      <div class="f-sub">保安検査 17:30 まで · 17:00 には空港着が目安</div>
-    </div>
-    <div class="f-time">18:55<br><span style="font-size:11px;color:#888;">→ 20:40</span></div>
+  <div class="flight-row">
+    <span class="f-dir">帰り</span>
+    <div class="f-num">MM582 · 新千歳 → 成田<div class="f-sub">保安検査 17:30まで · 17:00には空港着</div></div>
+    <div class="f-time">18:55</div>
   </div>
 </div>
 
-<div class="sec-label">🏨 宿泊</div>
-<div class="card" style="margin-bottom:24px;">
-  <div class="hotel-row">
-    <div class="hotel-icon">🏨</div>
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80" alt="札幌">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#f59e0b;color:#1a1a1a;">DAY 1 · 7/22 水</span>
+    <div class="day-ttl">札幌着。まず飯。</div>
+    <div class="day-sub">スープカレー → ジンギスカン → 日本三大夜景</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="mini-spot">
+    <div class="mini-icon">✈️</div>
     <div>
-      <div class="hotel-name">札幌グランドホテル</div>
-      <div class="hotel-sub">2泊 素泊まり · 札幌駅直結 · チェックイン 15:00 / アウト 10:30</div>
+      <div class="mini-time">08:45 → 10:35</div>
+      <div class="mini-name">成田発 → 新千歳着</div>
+      <div class="mini-note">快速エアポート 37分 → 11:50 札幌駅。まず荷物だけホテルに預けて動く。チェックインは 15:00〜</div>
     </div>
+  </div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=800&auto=format&fit=crop&q=80"
+      alt="スープカレー"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">12:25 整理券 → 12:50 入店</div>
+      <div class="spot-name">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
+      <div class="spot-desc">すすきの駅徒歩3分。整理券とってLINEで呼ばれるまで周辺ぶらぶらできるやつ。並ばなくていいのは正直ありがたい。スープなくなり次第終了なので早め確保。</div>
+      <div class="links">
+        <a class="link-btn" href="https://s-garaku.com/shop-garaku/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式</a>
+        <a class="link-btn" href="https://www.google.com/maps/search/GARAKU+スープカレー+札幌本店" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🌿</div>
+    <div>
+      <div class="mini-time">14:00</div>
+      <div class="mini-name">大通公園・テレビ塔</div>
+      <div class="mini-note">ゆっくり散歩。15:00にホテル正式チェックイン</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-img-placeholder">🐑</div>
+    <div class="spot-body">
+      <div class="spot-time">17:00</div>
+      <div class="spot-name">🐑 フクロウ亭 <span class="badge badge-red">要予約</span></div>
+      <div class="spot-desc">ジンギスカン。北海道来てジンギスカン食わなかったは通用しない。席数少ないので予約必須。忘れると訰む。</div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/フクロウ亭+ジンギスカン+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800&auto=format&fit=crop&q=80"
+      alt="夜景"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">19:30 山頂</div>
+      <div class="spot-name">🌃 藻岩山 夜景</div>
+      <div class="spot-desc">日本三大夜景のひとつ。日没 19:13直後でマジックアワーど真中心に着く計算。ロープウェイ + ミニケーブルカーの2段構え。</div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/藻岩山ロープウェイ+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1200&auto=format&fit=crop&q=80" alt="小樽">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#14b8a6;color:white;">DAY 2 · 7/23 木 ⭐</span>
+    <div class="day-ttl">全部小樽に置いてきた。</div>
+    <div class="day-sub">寿司 · ちいかわ · 運河 · 夜パフェ</div>
   </div>
 </div>
 
-<div class="day-wrap">
-  <div class="day-header">
-    <span class="day-num">DAY 1</span>
-    <div>
-      <div class="day-title-text">7月22日(水) · 札幌着</div>
-      <div class="day-subtitle-text">スープカレー → ジンギスカン → 夜景</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-time">08:45</div>
-        <div class="tl-main">✈ 成田発 → 10:35 新千歳着</div>
-        <div class="tl-note">快速エアポートで 37分 → 11:50 札幌駅</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">12:00</div>
-        <div class="tl-main">🧳 ホテルに荷物先預け</div>
-        <div class="tl-note">チェックインは 15:00〜。身軽に動く</div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">12:25</div>
-        <div class="tl-main">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
-        <div class="tl-note">すすきの駅 徒歩3分。店頭で整理券 → LINE で呼ばれるまで自由行動。12:50 ごろ入店</div>
-        <a class="link-btn" href="https://s-garaku.com/shop-garaku/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式サイト</a>
-        <a class="link-btn" href="https://www.google.com/maps/search/GARAKU+札幌本店+スープカレー" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">14:00</div>
-        <div class="tl-main">🌿 大通公園・テレビ塔 散策</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">15:00</div>
-        <div class="tl-main">🏨 ホテルチェックイン</div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">17:00</div>
-        <div class="tl-main">🐑 フクロウ亭 <span class="badge badge-red">要予約</span></div>
-        <div class="tl-note">ジンギスカン。席数少なめなので事前予約必須</div>
-        <a class="link-btn" href="https://www.google.com/maps/search/フクロウ亭+ジンギスカン+札幌+中央区" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">19:30</div>
-        <div class="tl-main">🌃 藻岩山 山頂・夜景</div>
-        <div class="tl-note">日本三大夜景。日没 19:13 直後でマジックアワー。ロープウェイ + ミニケーブルカー</div>
-        <a class="link-btn" href="https://www.google.com/maps/search/藻岩山ロープウェイ+山麓駅+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">21:00</div>
-        <div class="tl-main">🏨 ホテル戻り</div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="content">
 
-<div class="day-wrap">
-  <div class="day-header">
-    <span class="day-num" style="background:var(--teal);">DAY 2</span>
+  <div class="mini-spot">
+    <div class="mini-icon">🚃</div>
     <div>
-      <div class="day-title-text">7月23日(木) · 小樽</div>
-      <div class="day-subtitle-text">メインデー — 寿司・ちいかわ・運河・夜パフェ</div>
+      <div class="mini-time">11:00 → 11:32</div>
+      <div class="mini-name">札幌駅 → 小樽駅</div>
+      <div class="mini-note">JR函館本線 32分 ¥750。朝は時計台周辺を散歩してから出発</div>
     </div>
   </div>
-  <div class="card">
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-time">09:00</div>
-        <div class="tl-main">☕ 朝ごはん(札幌駅周辺カフェ)</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">10:00</div>
-        <div class="tl-main">🏙 大通公園・時計台 朝散歩</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">11:00</div>
-        <div class="tl-main">🚃 札幌駅発 → 11:32 小樽着</div>
-        <div class="tl-note">JR 函館本線 32分 ¥750</div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">12:00</div>
-        <div class="tl-main">🍣 おたる政寿司 本店 <span class="badge badge-red">要予約</span></div>
-        <div class="tl-note">1938年創業。名物はイカそうめん(ウニ+卵黄のタレ)。寿司屋通り</div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&auto=format&fit=crop&q=80"
+      alt="寿司"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">12:00</div>
+      <div class="spot-name">🍣 おたる政寿司 本店 <span class="badge badge-red">要予約</span></div>
+      <div class="spot-desc">1938年創業。小樽の寿司屋通りの代表格。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。</div>
+      <div class="links">
         <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>食べログ予約</a>
         <a class="link-btn" href="https://www.google.com/maps/search/おたる政寿司+本店+小樽" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
-      <div class="tl-item accent">
-        <div class="tl-time">13:30</div>
-        <div class="highlight-box">
-          <div class="tl-main">🐾 ちいかわもぐもぐ本舗 小樽店 <span class="badge badge-gold">入店ルール要確認</span></div>
-          <div class="tl-note">2026/7/18 オープン。旅行はオープン5日目。小樽限定グッズあり。<br>入店ルールは公式X @chiikawamgmg で事前チェック</div>
-          <a class="link-btn" href="https://www.chiikawamogumogu.jp/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式サイト</a>
-          <a class="link-btn" href="https://x.com/chiikawamgmg" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式X</a>
-          <a class="link-btn" href="https://www.google.com/maps/search/ちいかわもぐもぐ本舗+小樽+堺町通り" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-        </div>
+    </div>
+  </div>
+
+  <div class="spot" style="border: 2px solid #14b8a6;">
+    <div style="padding:12px 12px 0;">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ja" style="margin:0;">
+        <a href="https://x.com/chiikawamgmg/status/2060164299452997884">ちいかわもぐもぐ本舗 小樽店オープン告知ツイート</a>
+      </blockquote>
+    </div>
+    <div class="spot-body">
+      <div class="spot-time">13:30</div>
+      <div class="spot-name">ちいかわもぐもぐ本舗 小樽店 <span class="badge badge-gold">入店ルール要確認</span></div>
+      <div class="spot-desc">2026/7/18オープン。うちらが行く7/23はオープン<strong>5日目</strong>。小樽限定グッズあり。ベビーカステラもある。入店ルールは公式Xで告知されるので旅行前に必ず確認すること。</div>
+      <div class="spot-note">📱 入店方法(整理券 / 予約 / 自由入店)は公式X @chiikawamgmg で発表される。オープン直後は混み方が読めないので早め対応。</div>
+      <div class="links">
+        <a class="link-btn" href="https://www.chiikawamogumogu.jp/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式サイト</a>
+        <a class="link-btn" href="https://x.com/chiikawamgmg" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式X</a>
+        <a class="link-btn" href="https://www.google.com/maps/search/ちいかわもぐもぐ本舗+小樽+堺町通り" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
-      <div class="tl-item">
-        <div class="tl-time">14:30</div>
-        <div class="tl-main">🏪 堺町通り散策</div>
-        <div class="tl-note">北一硝子・オルゴール堂</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-img-placeholder">🧀</div>
+    <div class="spot-body">
+      <div class="spot-time">16:00</div>
+      <div class="spot-name">🧀 LeTAO 本店 2F カフェ</div>
+      <div class="spot-desc">ドゥーブルフロマージュ。「名前だけ知ってる」で終わらせてきた人生をここで終わらせる。本店限定メニューもあり。</div>
+      <div class="links">
+        <a class="link-btn" href="https://www.google.com/maps/search/LeTAO+本店+小樽" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
-      <div class="tl-item accent">
-        <div class="tl-time">16:00</div>
-        <div class="tl-main">🧀 LeTAO 本店 2F カフェ</div>
-        <div class="tl-note">ドゥーブルフロマージュ。本店限定メニューあり</div>
-        <a class="link-btn" href="https://www.google.com/maps/search/LeTAO+本店+小樽+堺町" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">17:30</div>
-        <div class="tl-main">🍺 小樽倉庫 No.1</div>
-        <div class="tl-note">運河沿い石造倉庫のビアパブ。クラフトビール + ドイツ料理。無休・予約不要</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&auto=format&fit=crop&q=80"
+      alt="クラフトビール"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">17:30</div>
+      <div class="spot-name">🍺 小樽倉庫 No.1</div>
+      <div class="spot-desc">運河沿いの石造倉庫がそのままビアパブになってる場所。クラフトビール飲み終わったらそのまま運河のガス灯に流れる動線が完璧すぎる。無休・予約不要。</div>
+      <div class="links">
         <a class="link-btn" href="https://otarubeer.com/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式</a>
         <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000286/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>食べログ</a>
-        <a class="link-btn" href="https://www.google.com/maps/search/小樽倉庫+No.1+小樽+運河" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">19:00</div>
-        <div class="tl-main">🌉 小樽運河 ガス灯の夜景</div>
-        <div class="tl-note">倉庫No.1から徒歩0分。そのまま流れるだけ</div>
-        <a class="link-btn" href="https://www.google.com/maps/search/小樽運河+小樽市港町" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">20:30</div>
-        <div class="tl-main">🚃 小樽発 → 21:32 札幌着</div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">22:00</div>
-        <div class="tl-main">🍨 パフェ、珈琲、酒、佐藤 本店</div>
-        <div class="tl-note">すすきの。2〜3F イートイン。帰りに 1F 佐藤堂でお土産(ピスタチオスイーツ)</div>
-        <a class="link-btn" href="https://pfsato.official.ec/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式EC</a>
-        <a class="link-btn" href="https://www.google.com/maps/search/パフェ+珈琲+酒+佐藤+すすきの+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">23:30</div>
-        <div class="tl-main">🏨 ホテル戻り</div>
+        <a class="link-btn" href="https://www.google.com/maps/search/小樽倉庫No.1+小樽運河" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
     </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🌉</div>
+    <div>
+      <div class="mini-time">19:00</div>
+      <div class="mini-name">小樽運河 ガス灯の夜景</div>
+      <div class="mini-note">倉庫No.1から徒歩0分。夜景撮影。20:30に小樽駅に向かい 21:32 発で札幌へ</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&auto=format&fit=crop&q=80"
+      alt="パフェ"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">22:00</div>
+      <div class="spot-name">🍨 パフェ、珈琲、酒、佐藤</div>
+      <div class="spot-desc">すすきのの夜パフェ専門店　2〜3F でがっつりパフェ。帰りに1F 佐藤堂でピスタチオスイーツをお土産に買う。深夜まで営業してるのでホテルまでの帰り道でもいける。</div>
+      <div class="links">
+        <a class="link-btn" href="https://pfsato.official.ec/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>公式EC</a>
+        <a class="link-btn" href="https://www.google.com/maps/search/パフェ珈琲酒佐藤+すすきの+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="day-header">
+  <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=1200&auto=format&fit=crop&q=80" alt="ラーメン"
+       onerror="this.src='https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1200&auto=format&fit=crop&q=80'">
+  <div class="day-header-text">
+    <span class="day-num" style="background:#22c55e;color:white;">DAY 3 · 7/24 金</span>
+    <div class="day-ttl">ラーメン食って帰る。</div>
+    <div class="day-sub">海鮮朝食 → 伝説の味噌ラーメン → 帰宅</div>
   </div>
 </div>
 
-<div class="day-wrap">
-  <div class="day-header">
-    <span class="day-num" style="background:var(--sage);">DAY 3</span>
-    <div>
-      <div class="day-title-text">7月24日(金) · 帰路</div>
-      <div class="day-subtitle-text">海鮮朝食 → 彩未ラーメン → お土産 → 帰宅</div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="tl">
-      <div class="tl-item accent">
-        <div class="tl-time">09:00</div>
-        <div class="tl-main">🦐 二条市場 — 海鮮丼の朝ごはん</div>
-        <div class="tl-note">ホテルから徒歩圏内</div>
+<div class="content">
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=800&auto=format&fit=crop&q=80"
+      alt="海鮮"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">09:00</div>
+      <div class="spot-name">🦐 二条市場 — 海鮮丼</div>
+      <div class="spot-desc">ホテルから徒歩圏内。最終日の朝をここで始める。新鮮な海鮮丼で完全にテンションを上げてから帰路につく。</div>
+      <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/二条市場+札幌" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
-      <div class="tl-item">
-        <div class="tl-time">10:30</div>
-        <div class="tl-main">🧳 チェックアウト</div>
-        <div class="tl-note">荷物はフロント預けてOK</div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-time">11:00</div>
-        <div class="tl-main">🍜 麺屋 彩未 <span class="badge badge-red">行列覚悟</span></div>
-        <div class="tl-note">味噌ラーメン。10:40 札幌駅 → 東豊線 → 10:55 美園駅 → 徒歩4分 → 並ぶ → 11:00 開店</div>
+    </div>
+  </div>
+
+  <div class="mini-spot">
+    <div class="mini-icon">🧳</div>
+    <div>
+      <div class="mini-time">10:30</div>
+      <div class="mini-name">チェックアウト</div>
+      <div class="mini-note">荷物はフロント預けでOK。10:40 札幌駅(東豊線)へ</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <img class="spot-img"
+      src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=800&auto=format&fit=crop&q=80"
+      alt="ラーメン"
+      onerror="this.style.display='none'">
+    <div class="spot-body">
+      <div class="spot-time">11:00 開店</div>
+      <div class="spot-name">🍜 麺屋 彩未 <span class="badge badge-red">行列覚悟</span></div>
+      <div class="spot-desc">味噌ラーメン。行列に並ぶのが嫌いな人間でも並ぶ価値があるラーメンというものが世の中に存在する。ここがそれ。10:55着で開店前から並ぶ。</div>
+      <div class="spot-note">📍 地下鉄東豊線 美園駅 1番出口 徒歩4分<br>🕐 10:40 札幌駅発 → 10:55 美園駅着 → 並ぶ → 11:00 入店</div>
+      <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/麺屋+彩未+札幌+美園" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>地図</a>
       </div>
-      <div class="tl-item">
-        <div class="tl-time">13:00</div>
-        <div class="tl-main">🛍 札幌でお土産</div>
-        <div class="tl-note">LeTAO / 六花亭 / ロイズ / きのとや（佐藤堂は Day 2 に購入済み）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">16:00</div>
-        <div class="tl-main">🚃 札幌駅発 快速エアポート</div>
-        <div class="tl-note">16:40 新千歳着 · 17:30 までに保安検査</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">18:55</div>
-        <div class="tl-main">✈ 新千歳発 MM582 → 20:40 成田着</div>
-      </div>
     </div>
   </div>
-</div>
 
-<div class="sec-label">📋 予約・確認リスト</div>
-<div class="card" style="margin-bottom:24px;">
-  <div class="check-item">
-    <div class="check-box"></div>
-    <div class="check-label"><span class="check-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div>
-  </div>
-  <div class="check-item">
-    <div class="check-box"></div>
-    <div class="check-label">
-      <span class="check-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名
-      <br><a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:var(--teal);font-size:12px;">食べログから予約 →</a>
+  <div class="mini-spot">
+    <div class="mini-icon">🛍</div>
+    <div>
+      <div class="mini-time">13:00</div>
+      <div class="mini-name">札幌でお土産</div>
+      <div class="mini-note">LeTAO / 六花亭 / ロイズ / きのとや。佐藤堂は Day 2 夜に購入済み</div>
     </div>
   </div>
-  <div class="check-item">
-    <div class="check-box"></div>
-    <div class="check-label">
-      ちいかわもぐもぐ本舗 入店ルール確認
-      <br><a href="https://x.com/chiikawamgmg" target="_blank" style="color:var(--teal);font-size:12px;">公式X @chiikawamgmg →</a>
+
+  <div class="mini-spot">
+    <div class="mini-icon">✈️</div>
+    <div>
+      <div class="mini-time">16:00 → 18:55</div>
+      <div class="mini-name">快速エアポート → 新千歳 → 帰宅</div>
+      <div class="mini-note">16:40 新千歳着、17:30までに保安検査、18:55 MM582 発 → 20:40 成田着</div>
     </div>
   </div>
-  <div class="check-item">
-    <div class="check-box"></div>
-    <div class="check-label">藻岩山ロープウェイ 最新営業時間を確認</div>
+
+  <div class="checklist">
+    <div class="cl-title">📋 予約・確認リスト</div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div><span class="cl-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div><span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br><a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#14b8a6;font-size:12px;">食べログから予約 →</a></div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div>ちいかわもぐもぐ本舗 入店ルール確認<br><a href="https://x.com/chiikawamgmg" target="_blank" style="color:#14b8a6;font-size:12px;">公式X @chiikawamgmg →</a></div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div>藻岩山ロープウェイ 最新営業時間を確認</div>
+    </div>
   </div>
+
 </div>
 
 <div class="footer">
   <strong>北海道 2026.7.22–24</strong>
-  いい旅になりますように
+  いい旅を。
 </div>
 
+</div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
