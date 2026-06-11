@@ -3,154 +3,374 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>北海道旅行 キャラ版 2026.7.22–24</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+<title>🐾 ちいかわと行く北海道 2026.7.22–24</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Yusei+Magic&family=Kaisei+Decol&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans JP', sans-serif; background: #111; color: #f0f0f0; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #fff5f7;
+  color: #5d4a52;
+  -webkit-font-smoothing: antialiased;
+}
 a { color: inherit; text-decoration: none; }
 
-.hero { position: relative; height: 60vw; max-height: 380px; min-height: 220px; overflow: hidden; }
-.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; }
-.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.7) 100%); }
-.hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 20px 24px; z-index: 1; }
-.hero-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 6px; }
-.hero h1 { font-family: 'DM Serif Display', serif; font-size: 32px; line-height: 1.2; margin-bottom: 10px; }
-.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.hero-chip { font-size: 11px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); padding: 4px 10px; border-radius: 99px; backdrop-filter: blur(4px); }
-
-.body { background: #f5f4f0; color: #1a1a1a; }
-.chara-notice { background: #1c2b3a; color: rgba(255,255,255,.8); padding: 10px 20px; font-size: 12px; text-align: center; letter-spacing: .05em; }
-.chara-notice strong { color: white; }
-
-.flight-strip { background: #1c2b3a; color: white; padding: 16px 20px; }
-.flight-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 13px; }
-.flight-row + .flight-row { border-top: 1px solid rgba(255,255,255,.1); }
-.f-dir { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: rgba(255,255,255,.15); padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
-.f-num { flex: 1; font-weight: 500; }
-.f-sub { font-size: 11px; color: rgba(255,255,255,.5); }
-.f-time { font-family: 'DM Serif Display', serif; font-size: 18px; white-space: nowrap; }
-
-.day-header { position: relative; height: 44vw; max-height: 260px; min-height: 160px; overflow: hidden; }
-.day-header img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.day-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.48); }
-.day-header-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px 18px; z-index: 1; color: white; }
-.day-num { font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
-.day-ttl { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.2; }
-.day-sub { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
-
-.content { padding: 0 16px 8px; background: #f5f4f0; }
-.spot { background: white; border-radius: 14px; overflow: hidden; margin: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
-
-/* Character image (Pokemon - real image) */
-.chara-wrap { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.chara-wrap img { height: 155px; width: auto; max-width: 88%; object-fit: contain; filter: drop-shadow(2px 6px 16px rgba(0,0,0,.25)); }
-
-/* Generic character tag */
-.chara-tag { position: absolute; bottom: 8px; right: 10px; font-size: 10px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; background: rgba(0,0,0,.4); color: white; backdrop-filter: blur(6px); display: flex; align-items: center; gap: 4px; }
-.chara-tag .dot { width: 6px; height: 6px; border-radius: 50%; }
-.chara-tag .dot.pkmn { background: #ffcb05; }
-.chara-tag .dot.disney { background: #f7d2e0; }
-.chara-tag .dot.chiikawa { background: #fff; }
-
-/* Disney emoji card */
-.chara-emoji { height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; overflow: hidden; padding: 18px; }
-.chara-emoji .big-emoji { font-size: 76px; line-height: 1; filter: drop-shadow(0 6px 16px rgba(0,0,0,.35)); margin-bottom: 6px; }
-.chara-emoji .film-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 800; letter-spacing: .18em; color: rgba(255,255,255,.92); text-transform: uppercase; }
-.chara-emoji .chara-name { font-size: 13px; font-weight: 700; color: white; margin-top: 2px; }
-.chara-emoji::before {
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, #ffe4ec 0%, #fff5f7 60%, #fef0d9 100%);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    radial-gradient(circle at 18% 22%, rgba(255,255,255,.35) 0 1.2px, transparent 1.6px),
-    radial-gradient(circle at 78% 35%, rgba(255,255,255,.3) 0 1.4px, transparent 1.8px),
-    radial-gradient(circle at 32% 75%, rgba(255,255,255,.4) 0 1.2px, transparent 1.6px),
-    radial-gradient(circle at 88% 82%, rgba(255,255,255,.32) 0 1.4px, transparent 1.8px),
-    radial-gradient(circle at 55% 12%, rgba(255,255,255,.28) 0 1px, transparent 1.4px);
-  background-size: 220px 220px;
+    radial-gradient(circle at 15% 20%, #ffd4e0 0 5px, transparent 6px),
+    radial-gradient(circle at 85% 15%, #ffe5a8 0 4px, transparent 5px),
+    radial-gradient(circle at 25% 80%, #ffc8d6 0 4px, transparent 5px),
+    radial-gradient(circle at 75% 85%, #b8e1ff 0 5px, transparent 6px),
+    radial-gradient(circle at 50% 50%, #fff 0 3px, transparent 4px);
+  background-size: 280px 280px;
+  opacity: .5;
   pointer-events: none;
 }
+.hero-emoji { font-size: 56px; margin-bottom: 8px; position: relative; z-index: 1; }
+.hero-label {
+  font-size: 11px; letter-spacing: .15em;
+  color: #d97a92; font-weight: 700;
+  margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 28px;
+  color: #c0306b;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.hero-sub {
+  font-size: 13px;
+  color: #8b6b75;
+  margin-bottom: 16px;
+  position: relative; z-index: 1;
+  font-weight: 500;
+}
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+.hero-chip {
+  font-size: 11px;
+  background: white;
+  border: 1.5px solid #ffd4e0;
+  color: #b85470;
+  padding: 4px 11px;
+  border-radius: 99px;
+  font-weight: 600;
+}
 
-/* Chiikawa emoji card */
-.chara-chiikawa { height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; overflow: hidden; padding: 18px; }
-.chara-chiikawa .big-emoji { font-size: 72px; line-height: 1; filter: drop-shadow(0 6px 16px rgba(0,0,0,.25)); margin-bottom: 6px; }
-.chara-chiikawa .chara-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: white; font-weight: 400; letter-spacing: .04em; }
-.chara-chiikawa .chara-sub { font-size: 10px; color: rgba(255,255,255,.7); margin-top: 4px; letter-spacing: .15em; font-weight: 700; text-transform: uppercase; }
-.chara-chiikawa::before {
+/* ─── FLIGHT ─── */
+.flight-strip {
+  background: white;
+  border: 2px dashed #ffd4e0;
+  border-radius: 16px;
+  margin: 16px;
+  padding: 14px 16px;
+}
+.flight-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+.flight-row + .flight-row {
+  border-top: 1px dashed #ffe4ec;
+}
+.f-dir {
+  font-size: 10px; font-weight: 700;
+  background: #ffd4e0; color: #b85470;
+  padding: 3px 9px; border-radius: 99px;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+.f-num { flex: 1; font-weight: 500; color: #5d4a52; }
+.f-sub { font-size: 11px; color: #b39ba5; margin-top: 1px; }
+.f-time {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 18px;
+  color: #c0306b;
+  white-space: nowrap;
+}
+
+/* ─── DAY HEADER ─── */
+.day-header {
+  margin: 22px 16px 8px;
+  text-align: center;
+  position: relative;
+}
+.day-emoji {
+  font-size: 36px;
+  margin-bottom: 4px;
+}
+.day-num {
+  font-size: 10px; font-weight: 900;
+  letter-spacing: .18em;
+  padding: 4px 12px;
+  border-radius: 99px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.day-ttl {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 22px;
+  color: #c0306b;
+  line-height: 1.3;
+}
+.day-sub {
+  font-size: 12px;
+  color: #8b6b75;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ─── SPOT CARD ─── */
+.content { padding: 0 16px 8px; }
+.spot {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 12px 0;
+  border: 1.5px solid #ffe4ec;
+  box-shadow: 0 4px 14px rgba(192, 48, 107, .08);
+}
+
+/* キャラビジュアル */
+.chara-card {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+}
+.chara-card::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    radial-gradient(circle at 15% 18%, rgba(255,255,255,.5) 0 1.5px, transparent 2px),
-    radial-gradient(circle at 85% 28%, rgba(255,255,255,.45) 0 1.3px, transparent 1.8px),
-    radial-gradient(circle at 25% 78%, rgba(255,255,255,.5) 0 1.4px, transparent 1.9px),
-    radial-gradient(circle at 75% 85%, rgba(255,255,255,.4) 0 1.3px, transparent 1.7px);
-  background-size: 180px 180px;
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.6) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 28%, rgba(255,255,255,.5) 0 1.8px, transparent 2.6px),
+    radial-gradient(circle at 32% 80%, rgba(255,255,255,.55) 0 1.8px, transparent 2.6px),
+    radial-gradient(circle at 85% 75%, rgba(255,255,255,.5) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 50%, rgba(255,255,255,.4) 0 1.4px, transparent 2px);
+  background-size: 160px 160px;
   pointer-events: none;
 }
+.chara-emoji {
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.15));
+  margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.chara-name {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 17px;
+  color: white;
+  font-weight: 400;
+  position: relative; z-index: 1;
+  text-shadow: 0 2px 6px rgba(0,0,0,.18);
+}
+.chara-quote {
+  font-size: 11px;
+  color: rgba(255,255,255,.95);
+  margin-top: 5px;
+  font-family: 'Yusei Magic', sans-serif;
+  position: relative; z-index: 1;
+  background: rgba(0,0,0,.15);
+  padding: 3px 11px;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+}
 
+/* Character color themes */
+.chara-hachi    { background: linear-gradient(135deg, #b8d9ff 0%, #7eb6ff 50%, #5a96e3 100%); }
+.chara-usagi    { background: linear-gradient(135deg, #fff8a8 0%, #ffd966 50%, #f5b820 100%); }
+.chara-chiikawa { background: linear-gradient(135deg, #fff0e0 0%, #ffc8a8 50%, #ffa07a 100%); }
+.chara-yoroi    { background: linear-gradient(135deg, #c8c0d8 0%, #948cb0 50%, #5e5470 100%); }
+.chara-momonga  { background: linear-gradient(135deg, #f0d8f0 0%, #c896d8 50%, #9c5fb8 100%); }
+.chara-kuri     { background: linear-gradient(135deg, #d8b890 0%, #a07850 50%, #6b4823 100%); }
+.chara-kani     { background: linear-gradient(135deg, #ffc8b8 0%, #ff8870 50%, #e04830 100%); }
+
+/* Spot body */
 .spot-body { padding: 14px 16px 16px; }
-.spot-time { font-size: 11px; font-weight: 700; color: #888; letter-spacing: .06em; margin-bottom: 4px; }
-.spot-name { font-size: 17px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; display: flex; align-items: flex-start; flex-wrap: wrap; gap: 6px; }
-.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; flex-shrink: 0; margin-top: 2px; }
-.badge-red  { background: #fee2e2; color: #c0392b; }
+.spot-time {
+  font-size: 11px; font-weight: 700;
+  color: #d97a92;
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+.spot-name {
+  font-size: 17px; font-weight: 700;
+  line-height: 1.35;
+  color: #5d4a52;
+  margin-bottom: 6px;
+  display: flex; align-items: flex-start;
+  flex-wrap: wrap; gap: 6px;
+}
+.badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 99px;
+  flex-shrink: 0; margin-top: 3px;
+}
+.badge-red  { background: #ffd6d6; color: #c0392b; }
 .badge-gold { background: #fef3c7; color: #92640a; }
-.badge-blue { background: #dbeafe; color: #1d4ed8; }
-.spot-desc { font-size: 13px; color: #444; line-height: 1.65; margin-bottom: 10px; }
-.spot-note { font-size: 12px; color: #888; background: #f5f4f0; border-radius: 8px; padding: 8px 10px; margin-bottom: 10px; line-height: 1.6; }
+.badge-blue { background: #d4e8ff; color: #1d4ed8; }
+
+.spot-desc {
+  font-size: 13px;
+  color: #6b5560;
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+.spot-note {
+  font-size: 12px; color: #8b6b75;
+  background: #fff5f7;
+  border: 1px dashed #ffd4e0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
 .links { display: flex; flex-wrap: wrap; gap: 6px; }
-.link-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #555; background: #f0ede7; border: 1px solid #ddd; padding: 5px 10px; border-radius: 7px; }
+.link-btn {
+  display: inline-flex; align-items: center;
+  gap: 4px;
+  font-size: 11px; font-weight: 600;
+  color: #b85470;
+  background: #fff5f7;
+  border: 1.5px solid #ffd4e0;
+  padding: 5px 11px;
+  border-radius: 99px;
+}
 .link-btn svg { width: 10px; height: 10px; flex-shrink: 0; }
 
-.mini-spot { background: white; border-radius: 12px; padding: 12px 14px; margin: 8px 0; display: flex; align-items: flex-start; gap: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+/* mini-spot */
+.mini-spot {
+  background: white;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid #ffe4ec;
+}
 .mini-icon { font-size: 22px; flex-shrink: 0; }
-.mini-time { font-size: 10px; font-weight: 700; color: #aaa; margin-bottom: 2px; }
-.mini-name { font-size: 14px; font-weight: 700; }
-.mini-note { font-size: 12px; color: #777; margin-top: 2px; line-height: 1.5; }
+.mini-time { font-size: 10px; font-weight: 700; color: #d97a92; margin-bottom: 2px; }
+.mini-name { font-size: 14px; font-weight: 700; color: #5d4a52; }
+.mini-note { font-size: 12px; color: #8b6b75; margin-top: 2px; line-height: 1.55; }
 
-.checklist { background: white; border-radius: 14px; padding: 18px 16px; margin: 16px 0 24px; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
-.cl-title { font-size: 13px; font-weight: 700; color: #aaa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
-.cl-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0ede7; font-size: 13px; line-height: 1.5; }
+/* checklist */
+.checklist {
+  background: white;
+  border-radius: 18px;
+  padding: 18px 16px;
+  margin: 16px 0 24px;
+  border: 1.5px solid #ffe4ec;
+}
+.cl-title {
+  font-size: 13px; font-weight: 700;
+  color: #d97a92;
+  letter-spacing: .1em;
+  margin-bottom: 14px;
+}
+.cl-item {
+  display: flex; gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px dashed #ffe4ec;
+  font-size: 13px;
+  line-height: 1.6;
+}
 .cl-item:last-child { border-bottom: none; }
-.cl-box { width: 20px; height: 20px; border: 2px solid #ddd; border-radius: 5px; flex-shrink: 0; margin-top: 1px; }
-.cl-urgent { color: #c0392b; font-weight: 700; }
+.cl-box {
+  width: 20px; height: 20px;
+  border: 2px solid #ffd4e0;
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cl-urgent { color: #c0306b; font-weight: 700; }
 
-.footer { background: #1c2b3a; color: rgba(255,255,255,.5); text-align: center; padding: 28px 20px; font-size: 12px; }
-.footer strong { display: block; color: white; font-size: 15px; margin-bottom: 4px; }
+.footer {
+  background: linear-gradient(135deg, #fff0e0 0%, #ffe4ec 100%);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+  color: #b85470;
+  border-top: 1px dashed #ffd4e0;
+}
+.footer strong {
+  display: block;
+  font-family: 'Kaisei Decol', serif;
+  color: #c0306b;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
 
-.legend { display: flex; justify-content: center; gap: 14px; font-size: 11px; padding: 12px 16px 4px; background: #f5f4f0; color: #666; flex-wrap: wrap; }
-.legend span { display: inline-flex; align-items: center; gap: 5px; }
-.legend .d { width: 8px; height: 8px; border-radius: 50%; }
-.legend .d.pkmn { background: #ffcb05; }
-.legend .d.disney { background: #c2185b; }
-.legend .d.chiikawa { background: #f7c1d5; }
+@media (min-width: 600px) {
+  .hero h1 { font-size: 36px; }
+  body { max-width: 600px; margin: 0 auto; box-shadow: 0 0 40px rgba(192, 48, 107, .08); }
+}
 
-@media (min-width: 600px) { .hero h1 { font-size: 44px; } body { max-width: 600px; margin: 0 auto; } }
+/* ─── REFRESH BUTTON ─── */
+.refresh-btn {
+  position: fixed;
+  bottom: 18px; right: 18px;
+  background: white;
+  color: #c0306b;
+  border: 2.5px solid #ffd4e0;
+  border-radius: 99px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(192, 48, 107, .25);
+  z-index: 100;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s;
+}
+.refresh-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+.refresh-btn:active { transform: scale(.94); }
+.refresh-btn:hover { background: #fff5f7; }
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <div class="hero">
-  <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=1200&auto=format&fit=crop&q=80" alt="北海道"
-       onerror="this.src='https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80'">
-  <div class="hero-text">
-    <div class="hero-label">Trip · 2026.07.22 — 07.24 · キャラ版</div>
-    <h1>北海道<br>行ってきます</h1>
-    <div class="hero-chips">
-      <span class="hero-chip">✈ Peach MM563/582</span>
-      <span class="hero-chip">🏨 札幌グランドホテル</span>
-      <span class="hero-chip">🐾 ちいかわ聖地巡礼</span>
-    </div>
+  <div class="hero-emoji">🐾🩷</div>
+  <div class="hero-label">CHIIKAWA TRIP · 2026.07.22 — 07.24</div>
+  <h1>ちいかわと行く<br>北海道</h1>
+  <div class="hero-sub">もぐもぐ本舗 小樽店 オープン5日目に殴り込み</div>
+  <div class="hero-chips">
+    <span class="hero-chip">✈ Peach MM563/582</span>
+    <span class="hero-chip">🏨 札幌グランドホテル</span>
+    <span class="hero-chip">🐾 聖地巡礼</span>
   </div>
 </div>
 
-<div class="body">
-<div class="chara-notice">🎮 ポケモン × 🏰 ディズニー × 🐾 ちいかわ <strong>合同キャラ版</strong></div>
-<div class="legend">
-  <span><span class="d pkmn"></span>ポケモン</span>
-  <span><span class="d disney"></span>ディズニー</span>
-  <span><span class="d chiikawa"></span>ちいかわ</span>
-</div>
-
+<!-- FLIGHT -->
 <div class="flight-strip">
   <div class="flight-row">
     <span class="f-dir">行き</span>
@@ -166,12 +386,10 @@ a { color: inherit; text-decoration: none; }
 
 <!-- DAY 1 -->
 <div class="day-header">
-  <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&auto=format&fit=crop&q=80" alt="札幌">
-  <div class="day-header-text">
-    <span class="day-num" style="background:#f59e0b;color:#1a1a1a;">DAY 1 · 7/22 水</span>
-    <div class="day-ttl">札幌着。まず飯。</div>
-    <div class="day-sub">スープカレー → ジンギスカン → 日本三大夜景</div>
-  </div>
+  <div class="day-emoji">🌸</div>
+  <span class="day-num" style="background:#ffe5a8;color:#92640a;">DAY 1 · 7/22 水</span>
+  <div class="day-ttl">札幌着。まず飯。</div>
+  <div class="day-sub">スープカレー → ジンギスカン → 日本三大夜景</div>
 </div>
 
 <div class="content">
@@ -185,19 +403,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- GARAKU → レミー (ラタトゥイユ) ディズニー -->
+  <!-- GARAKU → ハチワレ -->
   <div class="spot">
-    <div class="chara-emoji" style="background: linear-gradient(135deg, #6a1b9a 0%, #c2185b 55%, #f44336 100%);">
-      <div class="big-emoji">🐀🍲</div>
-      <div class="film-title">Ratatouille</div>
-      <div class="chara-name">レミー — 料理の天才ネズミ</div>
-      <span class="chara-tag"><span class="dot disney"></span>ディズニー / ピクサー</span>
+    <div class="chara-card chara-hachi">
+      <div class="chara-emoji">🍛✨</div>
+      <div class="chara-name">ハチワレ</div>
+      <div class="chara-quote">カレーじゃん…！</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">12:25 整理券 → 12:50 入店</div>
       <div class="spot-name">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
       <div class="spot-desc">
-        スパイスの世界で誰が一番うまく踊れるかの話。レミーがコック帽を被って厨房に立つように、GARAKUのスパイスも厳密に計算されてる。整理券とってLINEで呼ばれるまで自由行動。スープなくなり次第終了。
+        札幌着いて2時間半でスープカレー食ってる人類になる。整理券方式なので並ばなくていい。並ばなくていい？！カレーじゃん…！ スープなくなり次第終了するタイプの店なので、迷ってる時間が一番もったいない。
       </div>
       <div class="links">
         <a class="link-btn" href="https://s-garaku.com/shop-garaku/" target="_blank">
@@ -227,17 +444,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- フクロウ亭 → リザードン ポケモン -->
+  <!-- フクロウ亭 → うさぎ -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #4a0000 0%, #b71c1c 50%, #e53935 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="リザードン">
-      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.006 リザードン</span>
+    <div class="chara-card chara-usagi">
+      <div class="chara-emoji">🐑🔥</div>
+      <div class="chara-name">うさぎ</div>
+      <div class="chara-quote">ヤハ！！！！</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">17:00</div>
       <div class="spot-name">🐑 フクロウ亭 <span class="badge badge-red">要予約</span></div>
       <div class="spot-desc">
-        ジンギスカン。炎を操るリザードンも北海道の肉の前では観客に回る。北海道来てジンギスカン食わなかったは通用しない。席数少ないので予約必須。忘れると詰む。
+        うさぎを鉄板の前に座らせたら肉が一瞬で蒸発する系のジンギスカン屋。席数が少ないので予約しないと店の前で「ｴｯ…ｱｱ…」となる。予約だけは絶対に忘れずに。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/フクロウ亭+ジンギスカン+札幌" target="_blank">
@@ -248,19 +466,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 藻岩山 → ハチワレ (ちいかわ) -->
+  <!-- 藻岩山 → ちいかわ -->
   <div class="spot">
-    <div class="chara-chiikawa" style="background: linear-gradient(135deg, #051426 0%, #102a52 50%, #1e3a8a 100%);">
-      <div class="big-emoji">🌌🗡️</div>
-      <div class="chara-name">ハチワレ</div>
-      <div class="chara-sub">夜空みてキラキラ言うやつ</div>
-      <span class="chara-tag"><span class="dot chiikawa"></span>ちいかわ</span>
+    <div class="chara-card chara-chiikawa">
+      <div class="chara-emoji">🌃🩷</div>
+      <div class="chara-name">ちいかわ</div>
+      <div class="chara-quote">…(感極まって涙)</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">19:30 山頂</div>
       <div class="spot-name">🌃 藻岩山 夜景</div>
       <div class="spot-desc">
-        日本三大夜景のひとつ。ハチワレが山頂で「キラキラやんね…」って言う絵が浮かぶ。日没19:13直後でマジックアワーど真ん中。ロープウェイ + ミニケーブルカーの2段構え。
+        日本三大夜景のひとつ。語彙力を奪ってくる山。ちいかわが山頂で「ｱｱ…」って言うやつ。日没19:13直後でマジックアワーど真ん中に着く計算。ロープウェイ + ミニケーブルカーの2段構え。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/藻岩山ロープウェイ+札幌" target="_blank">
@@ -275,12 +492,10 @@ a { color: inherit; text-decoration: none; }
 
 <!-- DAY 2 -->
 <div class="day-header">
-  <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1200&auto=format&fit=crop&q=80" alt="小樽">
-  <div class="day-header-text">
-    <span class="day-num" style="background:#14b8a6;color:white;">DAY 2 · 7/23 木 ⭐</span>
-    <div class="day-ttl">全部小樽に置いてきた。</div>
-    <div class="day-sub">寿司 · ちいかわ · 運河 · 夜パフェ</div>
-  </div>
+  <div class="day-emoji">🐾🩷</div>
+  <span class="day-num" style="background:#ffd4e0;color:#c0306b;">DAY 2 · 7/23 木 ⭐</span>
+  <div class="day-ttl">本命。もぐもぐ本舗の日。</div>
+  <div class="day-sub">寿司 → ちいかわ → 運河 → 夜パフェ</div>
 </div>
 
 <div class="content">
@@ -300,19 +515,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 政寿司 → アリエル (リトル・マーメイド) ディズニー -->
+  <!-- 政寿司 → 鎧さん -->
   <div class="spot">
-    <div class="chara-emoji" style="background: linear-gradient(135deg, #006064 0%, #00838f 45%, #00acc1 100%);">
-      <div class="big-emoji">🧜‍♀️🐚</div>
-      <div class="film-title">The Little Mermaid</div>
-      <div class="chara-name">アリエル — 海の中身を全部知ってる人</div>
-      <span class="chara-tag"><span class="dot disney"></span>ディズニー</span>
+    <div class="chara-card chara-yoroi">
+      <div class="chara-emoji">🍣⚔️</div>
+      <div class="chara-name">鎧さん</div>
+      <div class="chara-quote">イカを討伐した</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">12:00</div>
       <div class="spot-name">🍣 おたる政寿司 本店 <span class="badge badge-red">要予約</span></div>
       <div class="spot-desc">
-        1938年創業。アリエルが「人間って魚を生で食うらしいよ」と驚く現場がここ。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。寿司屋通り。
+        1938年創業。寿司屋通りの代表格。鎧さんがついさっきイカを討伐してきたみたいな鮮度のネタが並ぶ。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。
       </div>
       <div class="links">
         <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank">
@@ -327,21 +541,21 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- ちいかわ → Twitter embed (本人登場) -->
-  <div class="spot" style="border: 2px solid #14b8a6;">
+  <!-- ちいかわ → 本人 Twitter embed -->
+  <div class="spot" style="border: 2.5px solid #ffd4e0;">
     <div style="padding:12px 12px 0;">
       <blockquote class="twitter-tweet" data-dnt="true" data-lang="ja" style="margin:0;">
         <a href="https://x.com/chiikawamgmg/status/2060164299452997884">ちいかわもぐもぐ本舗 小樽店オープン告知ツイート</a>
       </blockquote>
     </div>
     <div class="spot-body">
-      <div class="spot-time">13:30</div>
-      <div class="spot-name">ちいかわもぐもぐ本舗 小樽店 <span class="badge badge-gold">入店ルール要確認</span></div>
+      <div class="spot-time">13:30 · 本命</div>
+      <div class="spot-name">🐾 ちいかわもぐもぐ本舗 小樽店 <span class="badge badge-gold">入店ルール要確認</span></div>
       <div class="spot-desc">
-        2026/7/18オープン。うちらが行く7/23はオープン<strong>5日目</strong>。小樽限定グッズあり。ベビーカステラもある。入店ルールは公式Xで告知されるので旅行前に必ず確認すること。
+        本拠地。聖地。納税ポイント。2026/7/18オープン、うちらが行く7/23はオープン<strong>5日目</strong>。小樽限定グッズあり、ベビーカステラもある。入店ルールは公式Xで告知されるので旅行前に必ず確認。お金は多めに持っていく。
       </div>
       <div class="spot-note">
-        📱 入店方法(整理券 / 予約 / 自由入店)は公式X @chiikawamgmg で発表される。
+        📱 入店方法(整理券 / 予約 / 自由入店)は公式X @chiikawamgmg で発表される。オープン直後は混み方が読めないので早め対応。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.chiikawamogumogu.jp/" target="_blank">
@@ -360,17 +574,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- LeTAO → マホイップ ポケモン -->
+  <!-- LeTAO → モモンガ -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 60%, #e91e8c 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png" alt="マホイップ">
-      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.869 マホイップ</span>
+    <div class="chara-card chara-momonga">
+      <div class="chara-emoji">🧀🍰</div>
+      <div class="chara-name">モモンガ</div>
+      <div class="chara-quote">あげなぁい</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">16:00</div>
       <div class="spot-name">🧀 LeTAO 本店 2F カフェ</div>
       <div class="spot-desc">
-        ドゥーブルフロマージュ。スイーツ専門ポケモンのマホイップも全力で認めるチーズケーキ。「名前だけ知ってる」で終わらせてきた人生をここで終わらせる。本店限定もあり。
+        ドゥーブルフロマージュ。モモンガが皿を抱え込んで「あげなぁい」って言う系のチーズケーキ。「名前だけ知ってる」で終わらせてきた人生をここで終わらせる。本店限定メニューもあり。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/LeTAO+本店+小樽" target="_blank">
@@ -381,19 +596,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 小樽倉庫 → モモンガ (ちいかわ) -->
+  <!-- 小樽倉庫 → くりまんじゅう -->
   <div class="spot">
-    <div class="chara-chiikawa" style="background: linear-gradient(135deg, #5d2a07 0%, #8b5a2b 50%, #c68642 100%);">
-      <div class="big-emoji">🍺🐿️</div>
-      <div class="chara-name">モモンガ</div>
-      <div class="chara-sub">飲み会で一番うるさいやつ</div>
-      <span class="chara-tag"><span class="dot chiikawa"></span>ちいかわ</span>
+    <div class="chara-card chara-kuri">
+      <div class="chara-emoji">🍺🌰</div>
+      <div class="chara-name">栗まんじゅう先輩</div>
+      <div class="chara-quote">…(無言で飲む)</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">17:30</div>
       <div class="spot-name">🍺 小樽倉庫 No.1</div>
       <div class="spot-desc">
-        運河沿いの石造倉庫がそのままビアパブになってる場所。モモンガがビール片手にずっと喋ってる絵が浮かぶ。クラフトビール → 徒歩0分で運河ガス灯へ流れる完璧な動線。無休・予約不要。
+        運河沿いの石造倉庫がそのままビアパブになってる場所。栗まんじゅう先輩が一杯ずつ無言で味わうタイプのクラフトビール。飲み終わったら徒歩0分でガス灯へ流れる動線が完璧すぎる。無休・予約不要。
       </div>
       <div class="links">
         <a class="link-btn" href="https://otarubeer.com/" target="_blank">
@@ -427,19 +641,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- パフェ佐藤 → ベル (美女と野獣) ディズニー -->
+  <!-- パフェ佐藤 → ハチワレ (再登場) -->
   <div class="spot">
-    <div class="chara-emoji" style="background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 45%, #ad1457 100%);">
-      <div class="big-emoji">🥀🍰</div>
-      <div class="film-title">Beauty and the Beast</div>
-      <div class="chara-name">ベル — 図書室と深夜の甘いやつ</div>
-      <span class="chara-tag"><span class="dot disney"></span>ディズニー</span>
+    <div class="chara-card chara-hachi">
+      <div class="chara-emoji">🍨✨</div>
+      <div class="chara-name">ハチワレ</div>
+      <div class="chara-quote">なんとかなれー！</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">22:00</div>
       <div class="spot-name">🍨 パフェ、珈琲、酒、佐藤</div>
       <div class="spot-desc">
-        すすきのの夜パフェ専門店。ベルが城の深夜に甘いものを食べに降りてきたら絶対この店。2〜3F でがっつりパフェ。帰りに1F 佐藤堂でピスタチオスイーツを確保。
+        すすきのの夜パフェ専門店。「〆にラーメン」ではなく「〆にパフェ」が札幌の文化。22時にパフェを食べることに脳が混乱するが、なんとかなれー！の精神で食う。帰りに1F 佐藤堂でピスタチオスイーツをお土産に確保。
       </div>
       <div class="links">
         <a class="link-btn" href="https://pfsato.official.ec/" target="_blank">
@@ -458,28 +671,26 @@ a { color: inherit; text-decoration: none; }
 
 <!-- DAY 3 -->
 <div class="day-header">
-  <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=1200&auto=format&fit=crop&q=80" alt="ラーメン"
-       onerror="this.src='https://images.unsplash.com/photo-1547592166-23ac45744acd?w=1200&auto=format&fit=crop&q=80'">
-  <div class="day-header-text">
-    <span class="day-num" style="background:#22c55e;color:white;">DAY 3 · 7/24 金</span>
-    <div class="day-ttl">ラーメン食って帰る。</div>
-    <div class="day-sub">海鮮朝食 → 伝説の味噌ラーメン → 帰宅</div>
-  </div>
+  <div class="day-emoji">🍜</div>
+  <span class="day-num" style="background:#d4f4d4;color:#1e5e1e;">DAY 3 · 7/24 金</span>
+  <div class="day-ttl">ラーメン食って帰る。</div>
+  <div class="day-sub">海鮮朝食 → 伝説の味噌ラーメン → 帰宅</div>
 </div>
 
 <div class="content">
 
-  <!-- 二条市場 → ギャラドス ポケモン -->
+  <!-- 二条市場 → カニちゃん -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #01579b 0%, #0277bd 50%, #039be5 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="ギャラドス">
-      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.130 ギャラドス</span>
+    <div class="chara-card chara-kani">
+      <div class="chara-emoji">🦀🦐</div>
+      <div class="chara-name">カニちゃん</div>
+      <div class="chara-quote">…</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">09:00</div>
       <div class="spot-name">🦐 二条市場 — 海鮮丼</div>
       <div class="spot-desc">
-        ホテルから徒歩圏内。ギャラドスが暴れる海の恵みを朝から食らう。新鮮な海鮮丼で完全にテンションを上げてから帰路につく。
+        ホテルから徒歩圏内。カニちゃんの同族がずらっと並んでいて若干気まずいが、うまいものはうまい。朝9時から海鮮丼でテンションを限界まで上げてから帰路につく。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/二条市場+札幌" target="_blank">
@@ -499,17 +710,18 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 麺屋彩未 → カビゴン ポケモン -->
+  <!-- 麺屋彩未 → うさぎ (再登場) -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #212121 0%, #37474f 50%, #546e7a 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="カビゴン">
-      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.143 カビゴン</span>
+    <div class="chara-card chara-usagi">
+      <div class="chara-emoji">🍜🔥</div>
+      <div class="chara-name">うさぎ</div>
+      <div class="chara-quote">ンゴンゴンゴ</div>
     </div>
     <div class="spot-body">
       <div class="spot-time">11:00 開店</div>
       <div class="spot-name">🍜 麺屋 彩未 <span class="badge badge-red">行列覚悟</span></div>
       <div class="spot-desc">
-        味噌ラーメン。カビゴンが道を塞いでも食べ続けるほどのラーメン。行列に並ぶのが嫌な人間でも並ぶ価値がある。10:55着で開店前から並ぶ。
+        味噌ラーメンの最終兵器。行列に並ぶのが嫌いな人間でも並ぶ価値があるラーメンというものが世の中に存在する。ここがそれ。すすったらうさぎと同じ音が出る。10:55着で開店前から並ぶ。
       </div>
       <div class="spot-note">
         📍 地下鉄東豊線 美園駅 1番出口 徒歩4分<br>
@@ -556,22 +768,28 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
+  <!-- CHECKLIST -->
   <div class="checklist">
     <div class="cl-title">📋 予約・確認リスト</div>
     <div class="cl-item"><div class="cl-box"></div><div><span class="cl-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div></div>
-    <div class="cl-item"><div class="cl-box"></div><div><span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br><a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#14b8a6;font-size:12px;">食べログから予約 →</a></div></div>
-    <div class="cl-item"><div class="cl-box"></div><div>ちいかわもぐもぐ本舗 入店ルール確認<br><a href="https://x.com/chiikawamgmg" target="_blank" style="color:#14b8a6;font-size:12px;">公式X @chiikawamgmg →</a></div></div>
+    <div class="cl-item"><div class="cl-box"></div><div><span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br><a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#c0306b;font-size:12px;">食べログから予約 →</a></div></div>
+    <div class="cl-item"><div class="cl-box"></div><div>ちいかわもぐもぐ本舗 入店ルール確認<br><a href="https://x.com/chiikawamgmg" target="_blank" style="color:#c0306b;font-size:12px;">公式X @chiikawamgmg →</a></div></div>
     <div class="cl-item"><div class="cl-box"></div><div>藻岩山ロープウェイ 最新営業時間を確認</div></div>
   </div>
 
 </div>
 
 <div class="footer">
-  <strong>北海道 2026.7.22–24</strong>
-  いい旅を。
+  <strong>🐾🩷 北海道 2026.7.22–24</strong>
+  たのしんできてね〜！
 </div>
 
-</div>
+<!-- 🔄 更新ボタン -->
+<button class="refresh-btn" onclick="location.replace(location.pathname + '?v=' + Date.now())" aria-label="最新版を取得">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+  <span>最新を取得</span>
+</button>
+
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
