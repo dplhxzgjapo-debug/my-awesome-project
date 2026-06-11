@@ -17,44 +17,38 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── HERO ─── */
 .hero {
-  background: linear-gradient(135deg, #ffe4ec 0%, #fff5f7 60%, #fef0d9 100%);
-  padding: 32px 24px 28px;
+  background: linear-gradient(180deg, #b8d9ff 0%, #d0e5f5 70%, #fff5f7 100%);
+  padding: 22px 24px 28px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 15% 20%, #ffd4e0 0 5px, transparent 6px),
-    radial-gradient(circle at 85% 15%, #ffe5a8 0 4px, transparent 5px),
-    radial-gradient(circle at 25% 80%, #ffc8d6 0 4px, transparent 5px),
-    radial-gradient(circle at 75% 85%, #b8e1ff 0 5px, transparent 6px),
-    radial-gradient(circle at 50% 50%, #fff 0 3px, transparent 4px);
-  background-size: 280px 280px;
-  opacity: .5;
-  pointer-events: none;
+.hero-img {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 12px;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
 }
-.hero-emoji { font-size: 56px; margin-bottom: 8px; position: relative; z-index: 1; }
 .hero-label {
   font-size: 11px; letter-spacing: .15em;
   color: #d97a92; font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   position: relative; z-index: 1;
 }
 .hero h1 {
   font-family: 'Kaisei Decol', serif;
-  font-size: 28px;
+  font-size: 26px;
   color: #c0306b;
   line-height: 1.35;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   position: relative; z-index: 1;
 }
 .hero-sub {
   font-size: 13px;
   color: #8b6b75;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   position: relative; z-index: 1;
   font-weight: 500;
 }
@@ -147,7 +141,15 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 4px 14px rgba(192, 48, 107, .08);
 }
 
-/* キャラビジュアル */
+/* キャラビジュアル (実画像) */
+.chara-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* キャラビジュアル (絵文字フォールバック) */
 .chara-card {
   height: 170px;
   display: flex;
@@ -359,7 +361,7 @@ a { color: inherit; text-decoration: none; }
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-emoji">🐾🩷</div>
+  <img class="hero-img" src="img/hero.jpg" alt="旅行中のちいかわとハチワレ">
   <div class="hero-label">CHIIKAWA TRIP · 2026.07.22 — 07.24</div>
   <h1>ちいかわと行く<br>北海道</h1>
   <div class="hero-sub">もぐもぐ本舗 小樽店 オープン5日目に殴り込み</div>
@@ -394,22 +396,21 @@ a { color: inherit; text-decoration: none; }
 
 <div class="content">
 
-  <div class="mini-spot">
-    <div class="mini-icon">✈️</div>
-    <div>
-      <div class="mini-time">08:45 → 10:35</div>
-      <div class="mini-name">成田発 → 新千歳着</div>
-      <div class="mini-note">快速エアポート 37分 → 11:50 札幌駅。まず荷物だけホテルに預けて動く。チェックインは 15:00〜</div>
+  <!-- 新千歳着 → うれシーサー -->
+  <div class="spot">
+    <img class="chara-img" src="img/shisa.jpg" alt="うれシーサー">
+    <div class="spot-body">
+      <div class="spot-time">08:45 → 10:35</div>
+      <div class="spot-name">✈️ 成田発 → 新千歳着 <span class="badge badge-blue">うれシーサー</span></div>
+      <div class="spot-desc">
+        うれシーサー！朝5時半起きの代償として、10:35にはもう北海道。快速エアポート 37分で 11:50 札幌駅。荷物だけホテルに預けて身軽になる。正式チェックインは15:00〜。
+      </div>
     </div>
   </div>
 
   <!-- GARAKU → ハチワレ -->
   <div class="spot">
-    <div class="chara-card chara-hachi">
-      <div class="chara-emoji">🍛✨</div>
-      <div class="chara-name">ハチワレ</div>
-      <div class="chara-quote">カレーじゃん…！</div>
-    </div>
+    <img class="chara-img" src="img/hachiware.jpg" alt="ハチワレ「！！」">
     <div class="spot-body">
       <div class="spot-time">12:25 整理券 → 12:50 入店</div>
       <div class="spot-name">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
@@ -446,11 +447,7 @@ a { color: inherit; text-decoration: none; }
 
   <!-- フクロウ亭 → うさぎ -->
   <div class="spot">
-    <div class="chara-card chara-usagi">
-      <div class="chara-emoji">🐑🔥</div>
-      <div class="chara-name">うさぎ</div>
-      <div class="chara-quote">ヤハ！！！！</div>
-    </div>
+    <img class="chara-img" src="img/usagi.jpg" alt="うさぎ「ﾑ」">
     <div class="spot-body">
       <div class="spot-time">17:00</div>
       <div class="spot-name">🐑 フクロウ亭 <span class="badge badge-red">要予約</span></div>
@@ -468,11 +465,7 @@ a { color: inherit; text-decoration: none; }
 
   <!-- 藻岩山 → ちいかわ -->
   <div class="spot">
-    <div class="chara-card chara-chiikawa">
-      <div class="chara-emoji">🌃🩷</div>
-      <div class="chara-name">ちいかわ</div>
-      <div class="chara-quote">…(感極まって涙)</div>
-    </div>
+    <img class="chara-img" src="img/chiikawa.jpg" alt="ちいかわ ✨">
     <div class="spot-body">
       <div class="spot-time">19:30 山頂</div>
       <div class="spot-name">🌃 藻岩山 夜景</div>
@@ -596,18 +589,14 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 小樽倉庫 → くりまんじゅう -->
+  <!-- 小樽倉庫 → 労働シーサー -->
   <div class="spot">
-    <div class="chara-card chara-kuri">
-      <div class="chara-emoji">🍺🌰</div>
-      <div class="chara-name">栗まんじゅう先輩</div>
-      <div class="chara-quote">…(無言で飲む)</div>
-    </div>
+    <img class="chara-img" src="img/shisa_work.jpg" alt="労働中のシーサー">
     <div class="spot-body">
       <div class="spot-time">17:30</div>
       <div class="spot-name">🍺 小樽倉庫 No.1</div>
       <div class="spot-desc">
-        運河沿いの石造倉庫がそのままビアパブになってる場所。栗まんじゅう先輩が一杯ずつ無言で味わうタイプのクラフトビール。飲み終わったら徒歩0分でガス灯へ流れる動線が完璧すぎる。無休・予約不要。
+        ここまでで朝5時起き → 飛行機 → カレー → 山頂 → 寿司 → 聖地巡礼 → 散策。完全に労働。シーサーがフキフキ言いながらたどり着くやつ。労働の終わりにビール、それも運河沿いの石造倉庫で。動線も飲み終わったら徒歩0分でガス灯へ。無休・予約不要。
       </div>
       <div class="links">
         <a class="link-btn" href="https://otarubeer.com/" target="_blank">
@@ -641,13 +630,9 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- パフェ佐藤 → ハチワレ (再登場) -->
+  <!-- パフェ佐藤 → ちいかわ&ハチワレ つんつん -->
   <div class="spot">
-    <div class="chara-card chara-hachi">
-      <div class="chara-emoji">🍨✨</div>
-      <div class="chara-name">ハチワレ</div>
-      <div class="chara-quote">なんとかなれー！</div>
-    </div>
+    <img class="chara-img" src="img/chiikawa_hachi.jpg" alt="ちいかわとハチワレ「つんつん」">
     <div class="spot-body">
       <div class="spot-time">22:00</div>
       <div class="spot-name">🍨 パフェ、珈琲、酒、佐藤</div>
@@ -712,11 +697,7 @@ a { color: inherit; text-decoration: none; }
 
   <!-- 麺屋彩未 → うさぎ (再登場) -->
   <div class="spot">
-    <div class="chara-card chara-usagi">
-      <div class="chara-emoji">🍜🔥</div>
-      <div class="chara-name">うさぎ</div>
-      <div class="chara-quote">ンゴンゴンゴ</div>
-    </div>
+    <img class="chara-img" src="img/usagi.jpg" alt="うさぎ「ﾑ」">
     <div class="spot-body">
       <div class="spot-time">11:00 開店</div>
       <div class="spot-name">🍜 麺屋 彩未 <span class="badge badge-red">行列覚悟</span></div>
