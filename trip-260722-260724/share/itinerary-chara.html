@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>北海道旅行 キャラ版 2026.7.22–24</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans JP', sans-serif; background: #111; color: #f0f0f0; -webkit-font-smoothing: antialiased; }
@@ -20,7 +20,6 @@ a { color: inherit; text-decoration: none; }
 .hero-chip { font-size: 11px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); padding: 4px 10px; border-radius: 99px; backdrop-filter: blur(4px); }
 
 .body { background: #f5f4f0; color: #1a1a1a; }
-
 .chara-notice { background: #1c2b3a; color: rgba(255,255,255,.8); padding: 10px 20px; font-size: 12px; text-align: center; letter-spacing: .05em; }
 .chara-notice strong { color: white; }
 
@@ -41,12 +40,53 @@ a { color: inherit; text-decoration: none; }
 .day-sub { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
 
 .content { padding: 0 16px 8px; background: #f5f4f0; }
-
 .spot { background: white; border-radius: 14px; overflow: hidden; margin: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
 
+/* Character image (Pokemon - real image) */
 .chara-wrap { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .chara-wrap img { height: 155px; width: auto; max-width: 88%; object-fit: contain; filter: drop-shadow(2px 6px 16px rgba(0,0,0,.25)); }
-.chara-tag { position: absolute; bottom: 8px; right: 10px; font-size: 10px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; background: rgba(0,0,0,.35); color: white; backdrop-filter: blur(6px); }
+
+/* Generic character tag */
+.chara-tag { position: absolute; bottom: 8px; right: 10px; font-size: 10px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; background: rgba(0,0,0,.4); color: white; backdrop-filter: blur(6px); display: flex; align-items: center; gap: 4px; }
+.chara-tag .dot { width: 6px; height: 6px; border-radius: 50%; }
+.chara-tag .dot.pkmn { background: #ffcb05; }
+.chara-tag .dot.disney { background: #f7d2e0; }
+.chara-tag .dot.chiikawa { background: #fff; }
+
+/* Disney emoji card */
+.chara-emoji { height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; overflow: hidden; padding: 18px; }
+.chara-emoji .big-emoji { font-size: 76px; line-height: 1; filter: drop-shadow(0 6px 16px rgba(0,0,0,.35)); margin-bottom: 6px; }
+.chara-emoji .film-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 800; letter-spacing: .18em; color: rgba(255,255,255,.92); text-transform: uppercase; }
+.chara-emoji .chara-name { font-size: 13px; font-weight: 700; color: white; margin-top: 2px; }
+.chara-emoji::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.35) 0 1.2px, transparent 1.6px),
+    radial-gradient(circle at 78% 35%, rgba(255,255,255,.3) 0 1.4px, transparent 1.8px),
+    radial-gradient(circle at 32% 75%, rgba(255,255,255,.4) 0 1.2px, transparent 1.6px),
+    radial-gradient(circle at 88% 82%, rgba(255,255,255,.32) 0 1.4px, transparent 1.8px),
+    radial-gradient(circle at 55% 12%, rgba(255,255,255,.28) 0 1px, transparent 1.4px);
+  background-size: 220px 220px;
+  pointer-events: none;
+}
+
+/* Chiikawa emoji card */
+.chara-chiikawa { height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; overflow: hidden; padding: 18px; }
+.chara-chiikawa .big-emoji { font-size: 72px; line-height: 1; filter: drop-shadow(0 6px 16px rgba(0,0,0,.25)); margin-bottom: 6px; }
+.chara-chiikawa .chara-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: white; font-weight: 400; letter-spacing: .04em; }
+.chara-chiikawa .chara-sub { font-size: 10px; color: rgba(255,255,255,.7); margin-top: 4px; letter-spacing: .15em; font-weight: 700; text-transform: uppercase; }
+.chara-chiikawa::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 18%, rgba(255,255,255,.5) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 85% 28%, rgba(255,255,255,.45) 0 1.3px, transparent 1.8px),
+    radial-gradient(circle at 25% 78%, rgba(255,255,255,.5) 0 1.4px, transparent 1.9px),
+    radial-gradient(circle at 75% 85%, rgba(255,255,255,.4) 0 1.3px, transparent 1.7px);
+  background-size: 180px 180px;
+  pointer-events: none;
+}
 
 .spot-body { padding: 14px 16px 16px; }
 .spot-time { font-size: 11px; font-weight: 700; color: #888; letter-spacing: .06em; margin-bottom: 4px; }
@@ -77,6 +117,13 @@ a { color: inherit; text-decoration: none; }
 .footer { background: #1c2b3a; color: rgba(255,255,255,.5); text-align: center; padding: 28px 20px; font-size: 12px; }
 .footer strong { display: block; color: white; font-size: 15px; margin-bottom: 4px; }
 
+.legend { display: flex; justify-content: center; gap: 14px; font-size: 11px; padding: 12px 16px 4px; background: #f5f4f0; color: #666; flex-wrap: wrap; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend .d { width: 8px; height: 8px; border-radius: 50%; }
+.legend .d.pkmn { background: #ffcb05; }
+.legend .d.disney { background: #c2185b; }
+.legend .d.chiikawa { background: #f7c1d5; }
+
 @media (min-width: 600px) { .hero h1 { font-size: 44px; } body { max-width: 600px; margin: 0 auto; } }
 </style>
 </head>
@@ -97,8 +144,12 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <div class="body">
-
-<div class="chara-notice">🎮 <strong>ポケモン × ちいかわ</strong> キャラクター旅行しおり版</div>
+<div class="chara-notice">🎮 ポケモン × 🏰 ディズニー × 🐾 ちいかわ <strong>合同キャラ版</strong></div>
+<div class="legend">
+  <span><span class="d pkmn"></span>ポケモン</span>
+  <span><span class="d disney"></span>ディズニー</span>
+  <span><span class="d chiikawa"></span>ちいかわ</span>
+</div>
 
 <div class="flight-strip">
   <div class="flight-row">
@@ -134,17 +185,19 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- GARAKU → ヤドン (ヤドンのシッポカレーが有名) -->
+  <!-- GARAKU → レミー (ラタトゥイユ) ディズニー -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #fff176 0%, #ffca28 60%, #ffa000 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png" alt="ヤドン">
-      <span class="chara-tag">ポケモン No.079 ヤドン</span>
+    <div class="chara-emoji" style="background: linear-gradient(135deg, #6a1b9a 0%, #c2185b 55%, #f44336 100%);">
+      <div class="big-emoji">🐀🍲</div>
+      <div class="film-title">Ratatouille</div>
+      <div class="chara-name">レミー — 料理の天才ネズミ</div>
+      <span class="chara-tag"><span class="dot disney"></span>ディズニー / ピクサー</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">12:25 整理券 → 12:50 入店</div>
       <div class="spot-name">🍛 GARAKU 札幌本店 <span class="badge badge-blue">整理券方式</span></div>
       <div class="spot-desc">
-        カレーといえばヤドン。ヤドンのシッポカレーはポケモン公式がコラボするほどの親和性。整理券とってLINEで呼ばれるまで周辺ぶらぶらできる。スープなくなり次第終了なので早め確保。
+        スパイスの世界で誰が一番うまく踊れるかの話。レミーがコック帽を被って厨房に立つように、GARAKUのスパイスも厳密に計算されてる。整理券とってLINEで呼ばれるまで自由行動。スープなくなり次第終了。
       </div>
       <div class="links">
         <a class="link-btn" href="https://s-garaku.com/shop-garaku/" target="_blank">
@@ -174,11 +227,11 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- フクロウ亭 → リザードン (炎×肉) -->
+  <!-- フクロウ亭 → リザードン ポケモン -->
   <div class="spot">
     <div class="chara-wrap" style="background: linear-gradient(135deg, #4a0000 0%, #b71c1c 50%, #e53935 100%);">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="リザードン">
-      <span class="chara-tag">ポケモン No.006 リザードン</span>
+      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.006 リザードン</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">17:00</div>
@@ -195,17 +248,19 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 藻岩山 → ブラッキー (夜に輝く) -->
+  <!-- 藻岩山 → ハチワレ (ちいかわ) -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #070720 0%, #0d1b5e 50%, #1a237e 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" alt="ブラッキー">
-      <span class="chara-tag">ポケモン No.197 ブラッキー</span>
+    <div class="chara-chiikawa" style="background: linear-gradient(135deg, #051426 0%, #102a52 50%, #1e3a8a 100%);">
+      <div class="big-emoji">🌌🗡️</div>
+      <div class="chara-name">ハチワレ</div>
+      <div class="chara-sub">夜空みてキラキラ言うやつ</div>
+      <span class="chara-tag"><span class="dot chiikawa"></span>ちいかわ</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">19:30 山頂</div>
       <div class="spot-name">🌃 藻岩山 夜景</div>
       <div class="spot-desc">
-        日本三大夜景のひとつ。夜になると輪が光るブラッキーのように、日没直後のマジックアワーで札幌の夜景が輝く。ロープウェイ + ミニケーブルカーの2段構え。
+        日本三大夜景のひとつ。ハチワレが山頂で「キラキラやんね…」って言う絵が浮かぶ。日没19:13直後でマジックアワーど真ん中。ロープウェイ + ミニケーブルカーの2段構え。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/藻岩山ロープウェイ+札幌" target="_blank">
@@ -245,17 +300,19 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 政寿司 → ラプラス (海の王者) -->
+  <!-- 政寿司 → アリエル (リトル・マーメイド) ディズニー -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #003c8f 0%, #1565c0 50%, #1976d2 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png" alt="ラプラス">
-      <span class="chara-tag">ポケモン No.131 ラプラス</span>
+    <div class="chara-emoji" style="background: linear-gradient(135deg, #006064 0%, #00838f 45%, #00acc1 100%);">
+      <div class="big-emoji">🧜‍♀️🐚</div>
+      <div class="film-title">The Little Mermaid</div>
+      <div class="chara-name">アリエル — 海の中身を全部知ってる人</div>
+      <span class="chara-tag"><span class="dot disney"></span>ディズニー</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">12:00</div>
       <div class="spot-name">🍣 おたる政寿司 本店 <span class="badge badge-red">要予約</span></div>
       <div class="spot-desc">
-        1938年創業。ラプラスが悠然と泳ぐ小樽の海の恵みを握った店。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。
+        1938年創業。アリエルが「人間って魚を生で食うらしいよ」と驚く現場がここ。名物のイカそうめん(ウニ+卵黄のタレ)は普通に意味不明なうまさ。寿司屋通り。
       </div>
       <div class="links">
         <a class="link-btn" href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank">
@@ -270,7 +327,7 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- ちいかわ → Twitter embed -->
+  <!-- ちいかわ → Twitter embed (本人登場) -->
   <div class="spot" style="border: 2px solid #14b8a6;">
     <div style="padding:12px 12px 0;">
       <blockquote class="twitter-tweet" data-dnt="true" data-lang="ja" style="margin:0;">
@@ -303,11 +360,11 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- LeTAO → マホイップ (スイーツポケモン) -->
+  <!-- LeTAO → マホイップ ポケモン -->
   <div class="spot">
     <div class="chara-wrap" style="background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 60%, #e91e8c 100%);">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png" alt="マホイップ">
-      <span class="chara-tag">ポケモン No.869 マホイップ</span>
+      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.869 マホイップ</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">16:00</div>
@@ -324,17 +381,19 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 小樽倉庫No.1 → ルンパッパ (パーティーポケモン) -->
+  <!-- 小樽倉庫 → モモンガ (ちいかわ) -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png" alt="ルンパッパ">
-      <span class="chara-tag">ポケモン No.272 ルンパッパ</span>
+    <div class="chara-chiikawa" style="background: linear-gradient(135deg, #5d2a07 0%, #8b5a2b 50%, #c68642 100%);">
+      <div class="big-emoji">🍺🐿️</div>
+      <div class="chara-name">モモンガ</div>
+      <div class="chara-sub">飲み会で一番うるさいやつ</div>
+      <span class="chara-tag"><span class="dot chiikawa"></span>ちいかわ</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">17:30</div>
       <div class="spot-name">🍺 小樽倉庫 No.1</div>
       <div class="spot-desc">
-        運河沿いの石造倉庫がそのままビアパブになってる場所。ルンパッパばりのノリでクラフトビールを飲んだら徒歩0分でそのまま運河ガス灯へ。無休・予約不要。
+        運河沿いの石造倉庫がそのままビアパブになってる場所。モモンガがビール片手にずっと喋ってる絵が浮かぶ。クラフトビール → 徒歩0分で運河ガス灯へ流れる完璧な動線。無休・予約不要。
       </div>
       <div class="links">
         <a class="link-btn" href="https://otarubeer.com/" target="_blank">
@@ -368,17 +427,19 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- パフェ佐藤 → ニンフィア (エレガント×甘さ) -->
+  <!-- パフェ佐藤 → ベル (美女と野獣) ディズニー -->
   <div class="spot">
-    <div class="chara-wrap" style="background: linear-gradient(135deg, #880e4f 0%, #c2185b 50%, #e91e63 100%);">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png" alt="ニンフィア">
-      <span class="chara-tag">ポケモン No.700 ニンフィア</span>
+    <div class="chara-emoji" style="background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 45%, #ad1457 100%);">
+      <div class="big-emoji">🥀🍰</div>
+      <div class="film-title">Beauty and the Beast</div>
+      <div class="chara-name">ベル — 図書室と深夜の甘いやつ</div>
+      <span class="chara-tag"><span class="dot disney"></span>ディズニー</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">22:00</div>
       <div class="spot-name">🍨 パフェ、珈琲、酒、佐藤</div>
       <div class="spot-desc">
-        すすきのの夜パフェ専門店。ニンフィアの気品ある甘さと深夜パフェの官能的な甘さは同じ系統にある。2〜3F でがっつりパフェ。帰りに1F 佐藤堂でピスタチオスイーツを確保。
+        すすきのの夜パフェ専門店。ベルが城の深夜に甘いものを食べに降りてきたら絶対この店。2〜3F でがっつりパフェ。帰りに1F 佐藤堂でピスタチオスイーツを確保。
       </div>
       <div class="links">
         <a class="link-btn" href="https://pfsato.official.ec/" target="_blank">
@@ -408,17 +469,17 @@ a { color: inherit; text-decoration: none; }
 
 <div class="content">
 
-  <!-- 二条市場 → ギャラドス (海鮮) -->
+  <!-- 二条市場 → ギャラドス ポケモン -->
   <div class="spot">
     <div class="chara-wrap" style="background: linear-gradient(135deg, #01579b 0%, #0277bd 50%, #039be5 100%);">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" alt="ギャラドス">
-      <span class="chara-tag">ポケモン No.130 ギャラドス</span>
+      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.130 ギャラドス</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">09:00</div>
       <div class="spot-name">🦐 二条市場 — 海鮮丼</div>
       <div class="spot-desc">
-        ホテルから徒歩圏内。ギャラドスが暴れる海の恵みを朝から食らう。最終日の朝をここで始める。新鮮な海鮮丼で完全にテンションを上げてから帰路につく。
+        ホテルから徒歩圏内。ギャラドスが暴れる海の恵みを朝から食らう。新鮮な海鮮丼で完全にテンションを上げてから帰路につく。
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.google.com/maps/search/二条市場+札幌" target="_blank">
@@ -438,11 +499,11 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
-  <!-- 麺屋彩未 → カビゴン (食の覇者) -->
+  <!-- 麺屋彩未 → カビゴン ポケモン -->
   <div class="spot">
     <div class="chara-wrap" style="background: linear-gradient(135deg, #212121 0%, #37474f 50%, #546e7a 100%);">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="カビゴン">
-      <span class="chara-tag">ポケモン No.143 カビゴン</span>
+      <span class="chara-tag"><span class="dot pkmn"></span>ポケモン No.143 カビゴン</span>
     </div>
     <div class="spot-body">
       <div class="spot-time">11:00 開店</div>
@@ -497,28 +558,10 @@ a { color: inherit; text-decoration: none; }
 
   <div class="checklist">
     <div class="cl-title">📋 予約・確認リスト</div>
-    <div class="cl-item">
-      <div class="cl-box"></div>
-      <div><span class="cl-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div>
-    </div>
-    <div class="cl-item">
-      <div class="cl-box"></div>
-      <div>
-        <span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br>
-        <a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#14b8a6;font-size:12px;">食べログから予約 →</a>
-      </div>
-    </div>
-    <div class="cl-item">
-      <div class="cl-box"></div>
-      <div>
-        ちいかわもぐもぐ本舗 入店ルール確認<br>
-        <a href="https://x.com/chiikawamgmg" target="_blank" style="color:#14b8a6;font-size:12px;">公式X @chiikawamgmg →</a>
-      </div>
-    </div>
-    <div class="cl-item">
-      <div class="cl-box"></div>
-      <div>藻岩山ロープウェイ 最新営業時間を確認</div>
-    </div>
+    <div class="cl-item"><div class="cl-box"></div><div><span class="cl-urgent">フクロウ亭</span> — 7/22(水) 17:00 × 2名 予約</div></div>
+    <div class="cl-item"><div class="cl-box"></div><div><span class="cl-urgent">おたる政寿司 本店</span> — 7/23(木) 12:00 × 2名<br><a href="https://tabelog.com/hokkaido/A0106/A010601/1000209/" target="_blank" style="color:#14b8a6;font-size:12px;">食べログから予約 →</a></div></div>
+    <div class="cl-item"><div class="cl-box"></div><div>ちいかわもぐもぐ本舗 入店ルール確認<br><a href="https://x.com/chiikawamgmg" target="_blank" style="color:#14b8a6;font-size:12px;">公式X @chiikawamgmg →</a></div></div>
+    <div class="cl-item"><div class="cl-box"></div><div>藻岩山ロープウェイ 最新営業時間を確認</div></div>
   </div>
 
 </div>
