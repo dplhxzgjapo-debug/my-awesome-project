@@ -339,6 +339,69 @@ a { color: inherit; text-decoration: none; }
   body { max-width: 600px; margin: 0 auto; box-shadow: 0 0 40px rgba(192, 48, 107, .08); }
 }
 
+/* ─── 限定グッズ買い物リスト ─── */
+.goods {
+  background: white;
+  border: 2px solid #14b8a6;
+  border-radius: 14px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.goods > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0d9488;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-tap-highlight-color: transparent;
+}
+.goods > summary::-webkit-details-marker { display: none; }
+.goods > summary .arw { transition: transform .2s; color: #14b8a6; font-size: 12px; }
+.goods[open] > summary .arw { transform: rotate(180deg); }
+.goods-inner { padding: 0 16px 16px; }
+.goods-grp {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0d9488;
+  letter-spacing: .04em;
+  margin: 14px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px dashed #99e6df;
+}
+.goods-note {
+  font-size: 11px;
+  color: #c0392b;
+  background: #ffeef0;
+  border-radius: 7px;
+  padding: 6px 9px;
+  margin: 4px 0 8px;
+  line-height: 1.5;
+}
+.g-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eef7f6;
+  font-size: 13px;
+}
+.g-item:last-child { border-bottom: none; }
+.g-box {
+  width: 15px; height: 15px;
+  border: 2px solid #99e6df;
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  top: 2px;
+}
+.g-name { flex: 1; color: #5d4a52; line-height: 1.5; }
+.g-name small { color: #a88; font-size: 11px; }
+.g-price { color: #0d9488; font-weight: 700; white-space: nowrap; font-size: 12px; }
+
 /* ─── REFRESH BUTTON ─── */
 .refresh-btn {
   position: fixed;
@@ -548,6 +611,70 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
   </div>
+
+  <!-- 小樽店限定 買い物リスト -->
+  <details class="goods">
+    <summary>🛍 小樽店限定リスト（買うもの候補） <span class="arw">▼</span></summary>
+    <div class="goods-inner">
+
+      <div class="goods-grp">🍬 食品（店頭限定・ネット販売なし）</div>
+      <div class="goods-note">⚠️ 食品は<strong>この店でしか買えない</strong>（オンライン取扱なし）。後悔枠なので優先的に確保。</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">バター飴 <small>糸を切るとランチョンマット/タペストリーに</small></span><span class="g-price">¥864</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ラベンダー和紅茶 <small>レトロ缶入りティーバッグ</small></span><span class="g-price">¥1,188</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">北海道メロンクッキー缶 <small>赤肉メロンピューレ使用</small></span><span class="g-price">¥918</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">焦がしバターキャラメルケーキ <small>牛さんちいかわの焼き印</small></span><span class="g-price">¥810</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">おみやげクッキー 12枚入 <small>小樽運河デザイン箱・配り用</small></span><span class="g-price">¥1,296</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">カステラまんじゅう ミルク&チョコ <small>ミルクは小樽限定</small></span><span class="g-price">¥1,296</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">金平糖 <small>小樽の海イメージの寒色・レトロ缶</small></span><span class="g-price">¥810</span></div>
+
+      <div class="goods-grp">🧸 雑貨 — ぬいぐるみ・マスコット</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">シマエナガになっちゃった！ぬいぐるみ <small>全3種</small></span><span class="g-price">¥2,420</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">小樽 レトロなマスコット <small>全8種</small></span><span class="g-price">¥2,200</span></div>
+
+      <div class="goods-grp">🥃 雑貨 — ガラス・食器</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">耐熱ガラスマグカップ <small>全2種</small></span><span class="g-price">¥2,090</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ガラスタンブラー <small>全2種・ペア可</small></span><span class="g-price">¥1,650</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ガラス豆皿 <small>全2種・約12cm</small></span><span class="g-price">¥1,650</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ステンドグラスなガラス箸置き <small>全8種</small></span><span class="g-price">¥550</span></div>
+
+      <div class="goods-grp">🔑 雑貨 — キーホルダー・アクスタ・缶バッジ</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">シマエナガなOTARUキーホルダー <small>全8種・アクリル</small></span><span class="g-price">¥990</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">メタルチャームキーホルダー <small>全8種</small></span><span class="g-price">¥660</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ステンドグラスなアクスタ <small>全8種 / BOX ¥4,400</small></span><span class="g-price">¥550</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">シマエナガなまんまるアクスタ <small>全8種 / BOX ¥4,400</small></span><span class="g-price">¥550</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">北海道ソフトクリームなマット缶バッジ in カプセル <small>全8種・ネット不可</small></span><span class="g-price">¥300</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">大きめ缶バッジ <small>全2種</small></span><span class="g-price">¥385</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">コレクションピンバッジ <small>全3種・牛さんちいかわ</small></span><span class="g-price">¥770</span></div>
+
+      <div class="goods-grp">🩹 雑貨 — シール・文具・マステ</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">シマエナガなもっちりフレークシール</span><span class="g-price">¥770</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ステンドグラスなクリアフレークシール</span><span class="g-price">¥770</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">スマホに貼れるステッカー <small>全8種・レトロ看板</small></span><span class="g-price">¥330</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">パタパタメモ</span><span class="g-price">¥660</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">手触りのいいクリアファイル <small>全2種</small></span><span class="g-price">¥440</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">北海道ソフトクリームなクリアマステ</span><span class="g-price">¥880</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ステンドグラスなクリアマステ</span><span class="g-price">¥880</span></div>
+
+      <div class="goods-grp">🧲 雑貨 — マグネット・小物</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ミニキャンバスマグネット <small>全2種・イーゼル付</small></span><span class="g-price">¥990</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ミニフレームマグネット <small>全2種</small></span><span class="g-price">¥495</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">足袋ソックス <small>全3種・牛さんちいかわ</small></span><span class="g-price">¥605</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">キャラ撮りスティック <small>全3種</small></span><span class="g-price">¥1,320</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ガーゼハンドタオル <small>全3種</small></span><span class="g-price">¥825</span></div>
+
+      <div class="goods-grp">👕 雑貨 — バッグ・アパレル</div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ランチサイズトートバッグ</span><span class="g-price">¥2,640</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ほどよいサイズの巾着</span><span class="g-price">¥1,320</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ポケッタブルエコバッグ <small>全2種</small></span><span class="g-price">¥1,650</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">トートバッグ <small>全2種</small></span><span class="g-price">¥2,860</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">巾着ショルダーバッグ <small>全2種・紐調節可</small></span><span class="g-price">¥2,530</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">Tシャツ 小樽運河 <small>全2種 M/L/XL</small></span><span class="g-price">¥3,190</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">Tシャツ レトロ <small>全2種 M/L/XL</small></span><span class="g-price">¥3,190</span></div>
+      <div class="g-item"><span class="g-box"></span><span class="g-name">ZIPパーカー <small>ネイビー・バックデザイン</small></span><span class="g-price">¥5,390</span></div>
+
+      <div class="goods-note" style="color:#8b6b75;background:#fff5f7;">💡 一部購入制限あり。食品(ネット不可)を最優先、あとは現地で実物見て決める。予算は多めに。</div>
+    </div>
+  </details>
 
   <!-- 政寿司 → ラッコ先輩(イカ討伐)【予約確定】 -->
   <div class="spot">
